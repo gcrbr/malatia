@@ -1,0 +1,51 @@
+:root {
+    --screen: #d07c15;
+    --led: "DotMatri";
+}
+
+@font-face {
+    font-family: "DotMatri";
+    src: url("dotmatri.woff");
+}
+
+body {
+    background: black;
+    color: var(--screen);
+}
+
+#main {
+    padding: 10px;
+}
+
+#title {
+    display: block;
+    font-weight: bold;
+    font-size: 35px;
+    border-bottom: 1px solid var(--screen);
+    font-family: Arial;
+    margin-bottom: 10px;
+}
+
+#trips {
+    float: left;
+    font-size: 20px;
+    font-family: var(--led);
+    text-align: left;
+}
+
+td {
+    width: 150px;
+    letter-spacing: 1px;
+    font-size: 23px;
+}
+
+th {
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 100;
+}
+
+tr:nth-child(even) {
+    background: #232323;
+}
