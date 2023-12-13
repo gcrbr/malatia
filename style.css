@@ -37,6 +37,7 @@ td {
     width: 150px;
     letter-spacing: 1px;
     font-size: 23px;
+    text-transform: uppercase;
 }
 
 th {
@@ -44,8 +45,4 @@ th {
     color: #ffffff;
     font-size: 15px;
     font-weight: 100;
-}
-
-tr:nth-child(even) {
-    background: #232323;
 }
