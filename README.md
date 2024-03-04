@@ -9,7 +9,7 @@ Questo piccolo script scritto in Python effettua le seguenti operazioni:
 - Riordina i risultati in base al prezzo (ascendente)
 - Li salva in un file (`data.json`)
 
-Questa sequenza di operazioni viene eseguita ogni ora.
+Questa sequenza di operazioni viene eseguita ogni cinque ore.
 
 I risultati sono visualizzabili attraverso un'interfaccia realizzata con HTML, CSS e JavaScript base. 
 
