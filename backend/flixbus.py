@@ -9,6 +9,7 @@ arrivals = [
     ('Firenze', 'Italy', '40de71c6-8646-11e6-9066-549f350fcb0c'),
     ('Venezia', 'Italy', '40dea03b-8646-11e6-9066-549f350fcb0c'),
     ('Bari', 'Italy', '40df3bba-8646-11e6-9066-549f350fcb0c'),
+    ('Pescara', 'Italy', '40df3966-8646-11e6-9066-549f350fcb0c'),
     ('Milano', 'Italy', '40ddcc6e-8646-11e6-9066-549f350fcb0c'),
     ('Trieste', 'Italy', '40de9f2f-8646-11e6-9066-549f350fcb0c'),
 
@@ -25,16 +26,16 @@ arrivals = [
 ]
 
 def get_date(offset=0):
-    return (datetime.datetime.now() + datetime.timedelta(1)).strftime('%d.%m.%Y')
+    return (datetime.datetime.now() + datetime.timedelta(offset+1)).strftime('%d.%m.%Y')
 
-def search_trips(departure, arrivals):
+def search_trips(departure, arrivals, offset=0):
     trips = []
     for p in arrivals:
         search = requests.get('https://global.api.flixbus.com/search/service/v4/search',
         params={
             'from_city_id': departure[2],
             'to_city_id': p[2],
-            'departure_date': get_date(),
+            'departure_date': get_date(offset),
             'products': '{"adult":1}',
             'currency': 'EUR',
             'locale': 'it',
@@ -43,7 +44,7 @@ def search_trips(departure, arrivals):
         }).json()
         for k in search.get('trips')[0]['results']:
             trip = search.get('trips')[0]['results'][k]
-            if (price := trip['price']['total']) < tripobj.good_price:
+            if (price := trip['price']['total']) < tripobj.good_price and price > 0:
                 trips.append(
                     tripobj.Trip(
                         date=dateutil.parser.parse(trip['departure']['date']),

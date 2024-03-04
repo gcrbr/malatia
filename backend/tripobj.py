@@ -18,7 +18,7 @@ class Trip:
         self.price = price
 
     def __str__(self):
-        return f'Trip({self.format_date()}, {self.departure}, {self.arrival}, {self.arrival_country}, {self.carrier}, {self.format_duration()}, {self.format_price()})'
+        return f'Trip({self.format_date()}, {self.format_time()}, {self.departure}, {self.arrival}, {self.arrival_country}, {self.carrier}, {self.format_duration()}, {self.format_price()})'
 
     def __repr__(self):
         return self.__str__()
@@ -32,7 +32,10 @@ class Trip:
         return f'{hours}h {round(minutes*60)}m'
     
     def format_date(self):
-        return self.date.strftime('%d.%m %H:%M')
+        return self.date.strftime('%d/%m')
+
+    def format_time(self):
+        return self.date.strftime('%H:%M')
     
     def format_price(self):
         return '{:0,.2f}'.format(self.price)
@@ -40,6 +43,7 @@ class Trip:
     def to_dict(self):
         return {
             'date': self.format_date(),
+            'time': self.format_time(),
             'departure': self.departure,
             'arrival': self.arrival,
             'arrival_country': self.arrival_country,
@@ -48,3 +52,4 @@ class Trip:
             'price': self.price,
             'formatted_price': self.format_price()
         }
+

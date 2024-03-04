@@ -31,6 +31,7 @@ body {
     font-size: 20px;
     font-family: var(--led);
     text-align: left;
+    width: 100%;
 }
 
 td {
@@ -45,4 +46,10 @@ th {
     color: #ffffff;
     font-size: 15px;
     font-weight: 100;
+}
+
+.carrier {
+    width: 100px;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
 }
