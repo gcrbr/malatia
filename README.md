@@ -35,7 +35,7 @@ python backend/core.py
 
 Per visualizzare l'interfaccia invece, bisogna avviare un server HTTP che possa servire i file opportuni.
 
-Banalmente, è possibile utilizzare `SimpleHTTPServer` di python eseguendo il seguente comando all'interno della cartella root della repository:
+Banalmente, è possibile utilizzare `SimpleHTTPServer` eseguendo il seguente comando all'interno della cartella root della repository:
 ```bash
-python3 -m http.server
+python -m http.server
 ``` 
