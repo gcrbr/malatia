@@ -3,6 +3,7 @@ import threading
 
 class Multidiscovery(discovery.Discovery):
     def __init__(self, departure, arrivals):
+        super().__init__(departure)
         self.arrivals = arrivals
         self.trips = []
     

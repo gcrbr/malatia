@@ -21,6 +21,10 @@ function parse_carrier_logo(carrier) {
 
 function parse_trips(trips) {
     trips.forEach(trip => {
+        if(!set) {
+            set = true;
+            document.querySelector('#partenza').innerHTML = trip.departure.toUpperCase();
+        }
         tr = '<tr>';
         tr += '<td>' + trip.date + '</td>';
         tr += '<td>' + trip.time + '</td>';
@@ -36,10 +40,6 @@ function parse_trips(trips) {
 }
 
 function load_trips(amount) {
-    if(!set) {
-        set = true;
-        document.querySelector('.partenza') = trip_list[0].departure;
-    }
     for(i=0;i<amount;++i) {
         if(trip_list[i]) {
             document.querySelector('#trips').innerHTML += trip_list[i];
