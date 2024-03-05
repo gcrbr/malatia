@@ -1,4 +1,4 @@
-from backend import tripobj
+from backend.discovery import tripobj
 import dateutil.parser
 import threading
 import requests
@@ -13,6 +13,9 @@ arrivals = [
     ('Pescara', 'Italy', '40df3966-8646-11e6-9066-549f350fcb0c'),
     ('Milano', 'Italy', '40ddcc6e-8646-11e6-9066-549f350fcb0c'),
     ('Trieste', 'Italy', '40de9f2f-8646-11e6-9066-549f350fcb0c'),
+    ('Aosta', 'Italy', '40e2b92f-8646-11e6-9066-549f350fcb0c'),
+    ('Bologna', 'Italy', '40df3653-8646-11e6-9066-549f350fcb0c'),
+    ('Torino', 'Italy', '40deee02-8646-11e6-9066-549f350fcb0c'),
 
     ('Rijeka', 'Croatia', '40e11860-8646-11e6-9066-549f350fcb0c'),
     ('Zagreb', 'Croatia', '40dea87d-8646-11e6-9066-549f350fcb0c'),
@@ -33,31 +36,34 @@ def get_date(offset=0):
 
 def search_location(p, offset):
     global trips, departure
-    search = requests.get('https://global.api.flixbus.com/search/service/v4/search',
-    params={
-        'from_city_id': departure[2],
-        'to_city_id': p[2],
-        'departure_date': get_date(offset),
-        'products': '{"adult":1}',
-        'currency': 'EUR',
-        'locale': 'it',
-        'search_by': 'cities',
-        'include_after_midnight_rides': '1'
-    }).json()
-    for k in search.get('trips')[0]['results']:
-        trip = search.get('trips')[0]['results'][k]
-        if (price := trip['price']['total']) < tripobj.good_price and price > 0:
-            trips.append(
-                tripobj.Trip(
-                    date=dateutil.parser.parse(trip['departure']['date']),
-                    departure=departure[0],
-                    arrival=p[0],
-                    carrier='Flixbus',
-                    duration=(trip['duration']['hours'] * 60) + trip['duration']['minutes'],
-                    price=price,
-                    arrival_country=p[1]
-                ).to_dict()
-            )
+    try:
+        search = requests.get('https://global.api.flixbus.com/search/service/v4/search',
+        params={
+            'from_city_id': departure[2],
+            'to_city_id': p[2],
+            'departure_date': get_date(offset),
+            'products': '{"adult":1}',
+            'currency': 'EUR',
+            'locale': 'it',
+            'search_by': 'cities',
+            'include_after_midnight_rides': '1'
+        }).json()
+        for k in search.get('trips')[0]['results']:
+            trip = search.get('trips')[0]['results'][k]
+            if (price := trip['price']['total']) < tripobj.good_price and price > 0:
+                trips.append(
+                    tripobj.Trip(
+                        date=dateutil.parser.parse(trip['departure']['date']),
+                        departure=departure[0],
+                        arrival=p[0],
+                        carrier='Flixbus',
+                        duration=(trip['duration']['hours'] * 60) + trip['duration']['minutes'],
+                        price=price,
+                        arrival_country=p[1]
+                    ).to_dict()
+                )
+    except:
+        pass
 
 def search_trips(offset=0):
     global arrivals

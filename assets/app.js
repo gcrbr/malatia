@@ -1,3 +1,5 @@
+trip_list = Array();
+
 function get_trips() {
     var xhr = new XMLHttpRequest();
     xhr.open('GET', 'data.json', true);
@@ -8,8 +10,8 @@ function get_trips() {
 }
 
 function parse_carrier_logo(carrier) {
-    if(carrier == "Flixbus" || carrier == "Ryanair") {
-        return '<img class="carrier" src="assets/' + carrier.toLowerCase() + '-logo.png" alt="' + carrier +'"/>';
+    if(["Flixbus", "Itabus", "Ryanair"].includes(carrier)) {
+        return '<img class="carrier" src="assets/images/' + carrier.toLowerCase() + '-logo.png" alt="' + carrier +'"/>';
     }else {
         return carrier;
     }
@@ -26,8 +28,22 @@ function parse_trips(trips) {
         tr += '<td>' + trip.duration + '</td>';
         tr += '<td>' + trip.formatted_price + ' EUR</td>';
         tr += '</tr>';
-        document.querySelector('#trips').innerHTML += tr;
+        trip_list.push(tr);
     });
+    load_trips(10);
+}
+
+function load_trips(amount) {
+    for(i=0;i<amount;++i) {
+        if(trip_list[i]) {
+            document.querySelector('#trips').innerHTML += trip_list[i];
+            trip_list.shift();
+        }
+    }
+    if(trip_list.length == 0) {
+        document.querySelector('.loadbutton').style.display = 'none';
+    }
 }
 
 document.body.onload = function() {get_trips();}
+document.querySelector('.loadbutton').onclick = function() {load_trips(10);}

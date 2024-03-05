@@ -40,6 +40,8 @@ td {
     font-size: 23px;
     text-transform: uppercase;
     background: #1a1a1a;
+    height: 45px;
+    padding: 2px;
 }
 
 th {
@@ -53,4 +55,25 @@ th {
     width: 100px;
     -webkit-user-drag: none;
     -moz-user-drag: none;
+}
+
+#more {
+    text-align: center;
+    padding: 10px;
+    transform: translateY(35px); /* non mi dite niente */
+}
+
+button {
+    background: var(--screen);
+    padding: 15px;
+    color: white;
+    font-family: var(--led);
+    text-transform: uppercase;
+    font-size: 20px;
+    border: 0;
+    border-radius: 10px;
+}
+
+button:hover {
+    cursor: pointer;
 }

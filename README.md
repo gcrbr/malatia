@@ -1,5 +1,5 @@
 # Malatìa
-![Interfaccia](https://i.imgur.com/CVmR3XJ.png)
+![Interfaccia](https://i.imgur.com/FYRMGvl.png)
 Misterioso strumento per dileguarsi da Napoli (o altre città, con codice opportunamente modificato) a basso costo e in occulte circostanze.
 
 Questo piccolo script scritto in Python effettua le seguenti operazioni:
@@ -18,7 +18,7 @@ Questa non fa altro che visualizzare i contenuti del file `data.json` in un form
 ## Vettori supportati
 | Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus |
 |--------------------|--------------------|-------|---------|----------|------------|--------|
-| ✓ | ✓ |       |         |          |            |        |
+| ✓ | ✓ |  |         |          |            | ✓ |
 
 Il supporto per gli altri vettori sarà introdotto nelle versioni successive.
 
