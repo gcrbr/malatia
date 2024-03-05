@@ -4,12 +4,12 @@ Misterioso strumento per dileguarsi da Napoli (o altre città, con codice opport
 
 Questo piccolo script scritto in Python effettua le seguenti operazioni:
 - Ricerca viaggi con partenza da Napoli verso destinazioni stabilite (solo per alcuni vettori) o comunque tra quelle offerte dal vettore
-- Confronta i prezzi con una soglia stabilita all'interno del codice
+- Confronta i prezzi con una soglia stabilita 
 - Aggiunge i risultati in una lista 
 - Riordina i risultati in base al prezzo (ascendente)
 - Li salva in un file (`data.json`)
 
-Questa sequenza di operazioni viene eseguita ogni cinque ore.
+Questa sequenza di operazioni viene ad intervalli regolari.
 
 I risultati sono visualizzabili attraverso un'interfaccia realizzata con HTML, CSS e JavaScript base. 
 
