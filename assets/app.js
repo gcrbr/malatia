@@ -10,7 +10,7 @@ function get_trips() {
 }
 
 function parse_carrier_logo(carrier) {
-    if(["Flixbus", "Itabus", "Ryanair"].includes(carrier)) {
+    if(["flixbus", "itabus", "ryanair"].includes(carrier)) {
         return '<img class="carrier" src="assets/images/' + carrier.toLowerCase() + '-logo.png" alt="' + carrier +'"/>';
     }else {
         return carrier;

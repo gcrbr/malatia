@@ -61,6 +61,7 @@ th {
     text-align: center;
     padding: 10px;
     transform: translateY(35px); /* non mi dite niente */
+    width: 100%;
 }
 
 button {
