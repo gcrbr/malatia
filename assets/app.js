@@ -1,3 +1,5 @@
+set = false;
+
 trip_list = Array();
 
 function get_trips() {
@@ -22,7 +24,7 @@ function parse_trips(trips) {
         tr = '<tr>';
         tr += '<td>' + trip.date + '</td>';
         tr += '<td>' + trip.time + '</td>';
-        tr += '<td>' + trip.departure + '</td>';
+        //tr += '<td>' + trip.departure + '</td>';
         tr += '<td>' + trip.arrival + '</td>';
         tr += '<td>' + parse_carrier_logo(trip.carrier) + '</td>';
         tr += '<td>' + trip.duration + '</td>';
@@ -34,6 +36,10 @@ function parse_trips(trips) {
 }
 
 function load_trips(amount) {
+    if(!set) {
+        set = true;
+        document.querySelector('.partenza') = trip_list[0].departure;
+    }
     for(i=0;i<amount;++i) {
         if(trip_list[i]) {
             document.querySelector('#trips').innerHTML += trip_list[i];
