@@ -1,7 +1,6 @@
 from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
-import requests
 
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
@@ -37,7 +36,7 @@ class Main(multidiscovery.Multidiscovery):
 
     def search_location(self, p, offset):
         try:
-            search = requests.get('https://global.api.flixbus.com/search/service/v4/search',
+            search = self.session.get('https://global.api.flixbus.com/search/service/v4/search',
             params={
                 'from_city_id': self.departure[2],
                 'to_city_id': p[2],

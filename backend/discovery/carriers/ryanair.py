@@ -1,8 +1,6 @@
 from backend.discovery import discovery
 from backend.discovery import trip
 import dateutil.parser
-import requests
-import os.path
 
 class Main(discovery.Discovery):
     def __init__(self):
@@ -14,7 +12,7 @@ class Main(discovery.Discovery):
     def search_trips(self, offset=0):
         trips = []
         try:
-            search = requests.get('https://www.ryanair.com/api/farfnd/v4/oneWayFares',
+            search = self.session.get('https://www.ryanair.com/api/farfnd/v4/oneWayFares',
             params={
                 'departureAirportIataCode': self.departure,
                 'outboundDepartureDateFrom': self.get_date(offset),

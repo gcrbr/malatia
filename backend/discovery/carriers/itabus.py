@@ -1,8 +1,6 @@
 from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
-import requests
-import os.path
 
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
@@ -34,7 +32,7 @@ class Main(multidiscovery.Multidiscovery):
 
     def search_location(self, p, offset):
         try:
-            search = requests.get(f'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/it/Api-Travels?origin={self.departure[1]}&destination={p[1]}&datestart={self.get_date(offset)}&adults=1&children=0&membership=false').json()
+            search = self.session.get(f'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/it/Api-Travels?origin={self.departure[1]}&destination={p[1]}&datestart={self.get_date(offset)}&adults=1&children=0&membership=false').json()
             for _trip in search['data']['outbound']['routes']:
                 if (price := _trip['bundles']['BASIC'][0]['price']) < trip.good_price and price > 0:
                     self.trips.append(
