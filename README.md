@@ -30,12 +30,12 @@ pip install python-dateutil requests
 
 Per avviare lo script:
 ```bash
-python backend/core.py
+python main.py
 ````
 
-Per visualizzare l'interfaccia invece, bisogna avviare un server HTTP che possa servire i file opportuni.
-
-Banalmente, è possibile utilizzare `SimpleHTTPServer` eseguendo il seguente comando all'interno della cartella root della repository:
+Per visualizzare l'interfaccia grafica basta avviare lo script con l'opzione `-i` o `--interface`:
 ```bash
-python -m http.server
-``` 
+python main.py -i
+````
+
+Le altre opzioni sono visualizzabili con il parametro `-h` o `--help`.

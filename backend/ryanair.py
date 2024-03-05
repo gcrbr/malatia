@@ -1,14 +1,15 @@
+from backend import tripobj
 import dateutil.parser
 import datetime
 import requests
-import tripobj
 
 departure = 'NAP'
 
 def get_date(offset=0):
     return (datetime.datetime.now() + datetime.timedelta(offset+1)).strftime('%Y-%m-%d')
 
-def search_flights(departure, offset=0):
+def search_trips(offset=0):
+    global departure
     trips = []
     search = requests.get('https://www.ryanair.com/api/farfnd/v4/oneWayFares',
     params={
