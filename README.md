@@ -1,5 +1,7 @@
 # Malatìa
 ![Interfaccia](https://i.imgur.com/9knQYPY.png)
+![Mappa](https://i.imgur.com/YR3jYne.png)
+
 Strumento per dileguarsi da Napoli (o altre città, con codice opportunamente modificato) a basso costo e in circostanze misteriose.
 
 Questo piccolo script scritto in Python effettua le seguenti operazioni:
