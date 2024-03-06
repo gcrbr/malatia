@@ -73,6 +73,9 @@ button {
     font-size: 20px;
     border: 0;
     border-radius: 10px;
+    width: 300px;
+    display: inline-block;
+    margin: 10px;
 }
 
 button:hover {

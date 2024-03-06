@@ -1,6 +1,6 @@
 # Malatìa
-![Interfaccia](https://i.imgur.com/FYRMGvl.png)
-Misterioso strumento per dileguarsi da Napoli (o altre città, con codice opportunamente modificato) a basso costo e in occulte circostanze.
+![Interfaccia](https://i.imgur.com/9knQYPY.png)
+Strumento per dileguarsi da Napoli (o altre città, con codice opportunamente modificato) a basso costo e in circostanze misteriose.
 
 Questo piccolo script scritto in Python effettua le seguenti operazioni:
 - Ricerca viaggi con partenza da Napoli verso destinazioni stabilite (solo per alcuni vettori) o comunque tra quelle offerte dal vettore

@@ -5,6 +5,6 @@ class mHandler(http.server.SimpleHTTPRequestHandler):
         pass
 
     def translate_path(self, path: str) -> str:
-        if path.lower() in ['/', '/index.html', '/data.json'] or path.lower().startswith('/assets/'):
+        if path.lower() in ['/', '/index.html', '/data.json', '/map.html'] or path.lower().startswith('/assets/'):
             return super().translate_path(path)
         return ''

@@ -47,9 +47,10 @@ function load_trips(amount) {
         }
     }
     if(trip_list.length == 0) {
-        document.querySelector('.loadbutton').style.display = 'none';
+        document.querySelector('#loadbutton').style.display = 'none';
     }
 }
 
 document.body.onload = function() {get_trips();}
-document.querySelector('.loadbutton').onclick = function() {load_trips(10);}
+document.querySelector('#loadbutton').onclick = function() {load_trips(10);}
+document.querySelector('#mapbutton').onclick = function() {window.open('map.html', '_blank');}

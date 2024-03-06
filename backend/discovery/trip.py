@@ -1,3 +1,5 @@
+from backend import geocoding
+
 good_price = 20
 class Trip:
     date = None
@@ -46,6 +48,7 @@ class Trip:
             'time': self.format_time(),
             'departure': self.departure,
             'arrival': self.arrival,
+            'arrival_loc': geocoding.get_coordinates(f'{self.arrival}, {self.arrival_country}'),
             'arrival_country': self.arrival_country,
             'carrier': self.carrier,
             'duration': self.format_duration(),
