@@ -12,7 +12,7 @@ def discovery_loop(carriers, delay, offset):
     while True:
         trips = []
         for carrier in carriers:
-            print(f'<!> Avvio ricerca su \'{carrier.__name__}\'')
+            print(f'(!) Avvio ricerca su \'{carrier.__name__}\'')
             for d in range(offset + 1):
                 try:
                     trips += carrier.Main().search_trips(d)
@@ -22,7 +22,7 @@ def discovery_loop(carriers, delay, offset):
         file = open('data.json', 'w')
         file.write(json.dumps(trips))
         file.close()
-        print(f'\n<!> {len(trips)} viaggi salvati su data.json')
+        print(f'\n(!) {len(trips)} viaggi salvati su data.json')
         time.sleep(delay)
 
 def run_http_server(port):
@@ -44,11 +44,11 @@ if __name__ == '__main__':
     print('MALATÌA <github.com/gcrbr>')
     
     if type(args.offset) is not int and not args.offset.isnumeric():
-        print('\n<!> Valore invalido fornito per l\'offset')
+        print('\n(!) Valore invalido fornito per l\'offset')
         exit(1)
     
     if type(args.port) is not int and not args.port.isnumeric():
-        print('\n<!> Valore invalido fornito per la porta del server')
+        print('\n(!) Valore invalido fornito per la porta del server')
         exit(1)
     
     args.port = int(args.port)
@@ -74,7 +74,7 @@ if __name__ == '__main__':
         try:
             carriers.append(__import__('backend.discovery.carriers.' + c, fromlist=[None]))
         except ImportError:
-            print(f'\n<!> Il vettore \'{c}\' non è stato trovato')
+            print(f'\n(!) Il vettore \'{c}\' non è stato trovato')
             exit(1)
 
     if args.interface or args.interfaceonly:

@@ -11,7 +11,8 @@
             "identifiers": {
                 "flixbus": "40e096c1-8646-11e6-9066-549f350fcb0c",
                 "itabus": "NAP_T",
-                "ryanair": "NAP"
+                "ryanair": "NAP",
+                "italo": "NAC"
             }
         },
         {
@@ -19,7 +20,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40de90ff-8646-11e6-9066-549f350fcb0c",
-                "itabus": "ROM_T"
+                "itabus": "ROM_T",
+                "italo": "RM0"
             }
         },
         {
@@ -27,7 +29,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40de71c6-8646-11e6-9066-549f350fcb0c",
-                "itabus": "FIR_T"
+                "itabus": "FIR_T",
+                "italo": "SMN"
             }
         },
         {
@@ -35,7 +38,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40dea03b-8646-11e6-9066-549f350fcb0c",
-                "itabus": "VEN_T"
+                "itabus": "VEN_T",
+                "italo": "VE0"
             }
         },
         {
@@ -43,7 +47,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40df3bba-8646-11e6-9066-549f350fcb0c",
-                "itabus": "BAR_T"
+                "itabus": "BAR_T",
+                "italo": "BAC"
             }
         },
         {
@@ -58,14 +63,16 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40ddcc6e-8646-11e6-9066-549f350fcb0c",
-                "itabus": "MIL_T"
+                "itabus": "MIL_T",
+                "italo": "MI0"
             }
         },
         {
             "name": "Trieste",
             "country": "Italy",
             "identifiers": {
-                "flixbus": "40de9f2f-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40de9f2f-8646-11e6-9066-549f350fcb0c",
+                "italo": "TSC"
             }
         },
         {
@@ -81,7 +88,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40df3653-8646-11e6-9066-549f350fcb0c",
-                "itabus": "BOL_T"
+                "itabus": "BOL_T",
+                "italo": "BC_"
             }
         },
         {
@@ -89,7 +97,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40deee02-8646-11e6-9066-549f350fcb0c",
-                "itabus": "TOR_T"
+                "itabus": "TOR_T",
+                "italo": "TO0"
             }
         },
         {
@@ -200,7 +209,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40dea1ff-8646-11e6-9066-549f350fcb0c",
-                "itabus": "VER_T"
+                "itabus": "VER_T",
+                "italo": "VPN"
             }
         },
         {
@@ -208,7 +218,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40e09993-8646-11e6-9066-549f350fcb0c",
-                "itabus": "REG_T"
+                "itabus": "REG_T",
+                "italo": "AAV"
             }
         },
         {

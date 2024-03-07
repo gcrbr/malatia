@@ -11,9 +11,9 @@ I risultati sono visualizzabili attraverso un'interfaccia realizzata con HTML, C
 Questa non fa altro che visualizzare i contenuti del file `data.json` in un formato tabellare leggibile.
 
 ## Vettori supportati
-| Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus |
-|--------------------|--------------------|-------|---------|----------|------------|--------|
-| ✓ | ✓ |  |         |          |            | ✓ |
+| Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus | easyJet |
+|--------------------|--------------------|-------|---------|----------|------------|--------|------|
+| ✓ | ✓ | ✓ |         |          |            | ✓ | | |
 
 Il supporto per gli altri vettori sarà introdotto nelle versioni successive.
 

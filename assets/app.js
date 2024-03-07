@@ -12,11 +12,7 @@ function get_trips() {
 }
 
 function parse_carrier_logo(carrier) {
-    if(["flixbus", "itabus", "ryanair"].includes(carrier)) {
-        return '<img class="carrier" src="assets/images/' + carrier.toLowerCase() + '-logo.png" alt="' + carrier +'"/>';
-    }else {
-        return carrier;
-    }
+    return '<img class="carrier" src="assets/images/' + carrier.toLowerCase() + '-logo.png" alt="' + carrier +'"/>';
 }
 
 function parse_trips(trips) {
@@ -41,9 +37,9 @@ function parse_trips(trips) {
 
 function load_trips(amount) {
     for(i=0;i<amount;++i) {
-        if(trip_list[i]) {
-            document.querySelector('#trips').innerHTML += trip_list[i];
-            trip_list.shift();
+        pop = trip_list.shift();
+        if(pop) {
+            document.querySelector('#trips').innerHTML += pop;
         }
     }
     if(trip_list.length == 0) {

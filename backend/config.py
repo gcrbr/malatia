@@ -80,6 +80,8 @@ class Config:
     def get_formatted_cities(self, format):
         formatted = []
         for city in self.get_cities():
+            if city.get('name') == self.get_departure_city().get('name'):
+                continue
             if f := self.format_city_object(city, format):
                 formatted.append(f)
         return formatted
