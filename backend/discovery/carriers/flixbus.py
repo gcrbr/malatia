@@ -4,31 +4,10 @@ import dateutil.parser
 
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
+        format = ('name', 'country', 'identifiers.flixbus')
         super().__init__(
-            ('Napoli', 'Italy', '40e096c1-8646-11e6-9066-549f350fcb0c'),
-            [
-                ('Roma', 'Italy', '40de90ff-8646-11e6-9066-549f350fcb0c'),
-                ('Firenze', 'Italy', '40de71c6-8646-11e6-9066-549f350fcb0c'),
-                ('Venezia', 'Italy', '40dea03b-8646-11e6-9066-549f350fcb0c'),
-                ('Bari', 'Italy', '40df3bba-8646-11e6-9066-549f350fcb0c'),
-                ('Pescara', 'Italy', '40df3966-8646-11e6-9066-549f350fcb0c'),
-                ('Milano', 'Italy', '40ddcc6e-8646-11e6-9066-549f350fcb0c'),
-                ('Trieste', 'Italy', '40de9f2f-8646-11e6-9066-549f350fcb0c'),
-                ('Aosta', 'Italy', '40e2b92f-8646-11e6-9066-549f350fcb0c'),
-                ('Bologna', 'Italy', '40df3653-8646-11e6-9066-549f350fcb0c'),
-                ('Torino', 'Italy', '40deee02-8646-11e6-9066-549f350fcb0c'),
-
-                ('Rijeka', 'Croatia', '40e11860-8646-11e6-9066-549f350fcb0c'),
-                ('Zagreb', 'Croatia', '40dea87d-8646-11e6-9066-549f350fcb0c'),
-                ('Lyon', 'France', '40df89c1-8646-11e6-9066-549f350fcb0c'),
-                ('Budapest', 'Hungary', '40de6527-8646-11e6-9066-549f350fcb0c'),
-                ('Geneva Airport', 'Switzerland', '89b7ebc7-cf52-4dac-97fd-b08ef8679623'),
-                ('Münich', 'Germany', '40d901a5-8646-11e6-9066-549f350fcb0c'),
-                ('Bern', 'Switzerland', '40df4ec8-8646-11e6-9066-549f350fcb0c'),
-                ('Innsbrück', 'Austria', '40dd9a2a-8646-11e6-9066-549f350fcb0c'),
-                ('Graz', 'Austria', '40de3c97-8646-11e6-9066-549f350fcb0c'),
-                ('Cannes', 'France', '40e0010f-8646-11e6-9066-549f350fcb0c')
-            ]
+            self.config.format_city_object(self.config.get_departure_city(), format),
+            self.config.get_formatted_cities(format)
         )
 
     def get_date(self, offset=0):

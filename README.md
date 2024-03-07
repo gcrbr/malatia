@@ -2,16 +2,9 @@
 ![Interfaccia](https://i.imgur.com/9knQYPY.png)
 ![Mappa](https://i.imgur.com/YR3jYne.png)
 
-Strumento per dileguarsi da Napoli (o altre città, con codice opportunamente modificato) a basso costo e in circostanze misteriose.
+Strumento per dileguarsi a basso costo e in circostanze misteriose.
 
-Questo piccolo script scritto in Python effettua le seguenti operazioni:
-- Ricerca viaggi con partenza da Napoli verso destinazioni stabilite (solo per alcuni vettori) o comunque tra quelle offerte dal vettore
-- Confronta i prezzi con una soglia stabilita 
-- Aggiunge i risultati in una lista 
-- Riordina i risultati in base al prezzo (ascendente)
-- Li salva in un file (`data.json`)
-
-Questa sequenza di operazioni viene ad intervalli regolari.
+Questo programma si occupa di ricercare viaggi a basso costo su diversi vettori da una località di partenza prestabilita verso località designate o comunque offerte dal vettore.
 
 I risultati sono visualizzabili attraverso un'interfaccia realizzata con HTML, CSS e JavaScript base. 
 
@@ -24,12 +17,13 @@ Questa non fa altro che visualizzare i contenuti del file `data.json` in un form
 
 Il supporto per gli altri vettori sarà introdotto nelle versioni successive.
 
-# Installazione
+## Installazione
 Le uniche librerie richieste sono `dateutil` e `requests`, entrambe installabili con il seguente comando:
 ```bash
 pip install python-dateutil requests
 ```
 
+## Utilizzo
 Per avviare lo script:
 ```bash
 python main.py
@@ -41,3 +35,14 @@ python main.py -i
 ````
 
 Le altre opzioni sono visualizzabili con il parametro `-h` o `--help`.
+
+## Configurazione
+All'interno del file `config.json` è possibile modificare:
+- La città di partenza da cui cercare i viaggi
+- Le città supportate
+- Il tetto massimo per il prezzo dei viaggi
+- Il tempo tra una ricerca e l'altra (in secondi)
+
+È importante assicurarsi che la città selezionata come partenza supporti tutti i vettori utilizzati. 
+
+In breve - bisogna verificare che per la data città, tutti i campi all'interno di `identifiers` siano riempiti adeguatamente.

@@ -4,27 +4,10 @@ import dateutil.parser
 
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
+        format = ('name', 'identifiers.itabus')
         super().__init__(
-            ('Napoli', 'NAP_T'),
-            [
-                ('Milano', 'MIL_T'),
-                ('Torino', 'TOR_T'),
-                ('Roma', 'ROM_T'),
-                ('Palermo', 'PAM_T'),
-                ('Agrigento', 'AGR_T'),
-                ('Aosta', 'AOT_T'),
-                ('San Benedetto del Tronto', 'SBN_T'),
-                ('L\'Aquila', 'LAQ_T'),
-                ('Catania', 'CAT_T'),
-                ('Firenze', 'FIR_T'),
-                ('Venezia', 'VEN_T'),
-                ('Bologna', 'BOL_T'),
-                ('Bergamo', 'BGG_T'),
-                ('Mantova', 'MAN_T'),
-                ('Verona', 'VER_T'),
-                ('Reggio Emilia', 'REG_T'),
-                ('Bari', 'BAR_T')
-            ]
+            self.config.format_city_object(self.config.get_departure_city(), format),
+            self.config.get_formatted_cities(format)
         )
 
     def get_date(self, offset=0):

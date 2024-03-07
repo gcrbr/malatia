@@ -4,7 +4,7 @@ import dateutil.parser
 
 class Main(discovery.Discovery):
     def __init__(self):
-        super().__init__('NAP')
+        super().__init__(self.config.get_departure_city().get('identifiers').get('ryanair'))
 
     def get_date(self, offset=0):
         return super().get_date('%Y-%m-%d', offset)
