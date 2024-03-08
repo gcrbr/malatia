@@ -1,6 +1,6 @@
 # Malatìa
-![Interface](https://i.imgur.com/9knQYPY.png)
-![Map](https://i.imgur.com/YR3jYne.png)
+![Interface](https://i.imgur.com/FtfGzuL.png)
+![Map](https://i.imgur.com/H9J8M9f.png)
 
 Tool to disappear at low cost and under mysterious circumstances.
 
