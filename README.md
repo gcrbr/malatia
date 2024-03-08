@@ -1,48 +1,48 @@
 # Malatìa
-![Interfaccia](https://i.imgur.com/9knQYPY.png)
-![Mappa](https://i.imgur.com/YR3jYne.png)
+![Interface](https://i.imgur.com/9knQYPY.png)
+![Map](https://i.imgur.com/YR3jYne.png)
 
-Strumento per dileguarsi a basso costo e in circostanze misteriose.
+Tool to disappear at low cost and under mysterious circumstances.
 
-Questo programma si occupa di ricercare viaggi a basso costo su diversi vettori da una località di partenza prestabilita verso località designate o comunque offerte dal vettore.
+This program deals with searching for low-cost trips on different carriers from a predetermined departure location to designated locations or otherwise offered by the carrier.
 
-I risultati sono visualizzabili attraverso un'interfaccia realizzata con HTML, CSS e JavaScript base. 
+The results are viewable through an interface made with HTML, CSS and basic JavaScript. 
 
-Questa non fa altro che visualizzare i contenuti del file `data.json` in un formato tabellare leggibile.
+This simply displays the contents of the `data.json` file in a readable table format.
 
-## Vettori supportati
+## Supported carriers
 | Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus | easyJet |
 |--------------------|--------------------|-------|---------|----------|------------|--------|------|
 | ✓ | ✓ | ✓ |         |          |            | ✓ | | |
 
-Il supporto per gli altri vettori sarà introdotto nelle versioni successive.
+Note: Some carriers such as _Itabus_ and _Italo_, are only available in Italy.
 
-## Installazione
-Le uniche librerie richieste sono `dateutil` e `requests`, entrambe installabili con il seguente comando:
+## Installation
+The only required dependencies are `dateutil` e `requests`, you can install them with the following command:
 ```bash
 pip install python-dateutil requests
 ```
 
-## Utilizzo
-Per avviare lo script:
+## Usage
+To start the program:
 ```bash
 python main.py
 ````
 
-Per visualizzare l'interfaccia grafica basta avviare lo script con l'opzione `-i` o `--interface`:
+To run and view the interface you can use the parameter `-i` or `--interface`:
 ```bash
 python main.py -i
 ````
 
-Le altre opzioni sono visualizzabili con il parametro `-h` o `--help`.
+You can see the other options by using the parameter `-h` or `--help`.
 
-## Configurazione
-All'interno del file `config.json` è possibile modificare:
-- La città di partenza da cui cercare i viaggi
-- Le città supportate
-- Il tetto massimo per il prezzo dei viaggi
-- Il tempo tra una ricerca e l'altra (in secondi)
+## Configuration
+Within the `config.json` file it is possible to change:
+- The starting city from which to search for trips
+- The supported cities
+- The price cap for the trips
+- The time delay between searches (in seconds)
 
-È importante assicurarsi che la città selezionata come partenza supporti tutti i vettori utilizzati. 
+It is important to make sure that the city selected as the departure supports all the carriers used. 
 
-In breve - bisogna verificare che per la data città, tutti i campi all'interno di `identifiers` siano riempiti adeguatamente.
+In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.

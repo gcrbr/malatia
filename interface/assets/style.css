@@ -1,5 +1,6 @@
 :root {
     --screen: #d07c15;
+    --screenHover: #b06912;
     --led: "DotMatri";
 }
 
@@ -60,7 +61,7 @@ th {
 #more {
     text-align: center;
     padding: 10px;
-    transform: translateY(35px); /* non mi dite niente */
+    transform: translateY(25px); /* non mi dite niente */
     width: 100%;
 }
 
@@ -80,4 +81,5 @@ button {
 
 button:hover {
     cursor: pointer;
+    background: var(--screenHover);
 }
