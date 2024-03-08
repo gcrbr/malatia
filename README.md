@@ -46,3 +46,10 @@ Within the `config.json` file it is possible to change:
 It is important to make sure that the city selected as the departure supports all the carriers used. 
 
 In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.
+
+## Credits
+[Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font.
+
+## Technologies used
+- LeafletJS: Map interface
+- Yandex maps: Geocoding API
