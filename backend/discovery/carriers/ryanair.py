@@ -16,7 +16,7 @@ class Main(discovery.Discovery):
             params={
                 'departureAirportIataCode': self.departure,
                 'outboundDepartureDateFrom': self.get_date(offset),
-                'market': 'it',
+                #'market': 'it',
                 'adultPaxCount': '1',
                 'outboundDepartureDateTo': self.get_date(offset),
                 'outboundDepartureTimeFrom': '00:00',
