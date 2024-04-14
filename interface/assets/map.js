@@ -21,8 +21,10 @@ var mPinPoint = L.icon({
 })
 
 pinned = [];
+trip_number = 0;
 function pinpoint(data) {
     data.forEach(city => {
+        trip_number++;
         if(!pinned.includes(city.arrival)) {
             pinned.push(city.arrival);
             L.marker(
@@ -33,11 +35,16 @@ function pinpoint(data) {
                 {
                     icon: mPinPoint
                 }).addTo(map).bindPopup(
-                    city.arrival + '<br>' + city.formatted_price + ' EUR',
+                    city.arrival + '<br>' + city.formatted_price + ' EUR <br> <button onclick="open_trip(' + trip_number + ')"><i class="fa fa-eye"></i> View trip</button>',
                     {
                         maxWidth: 200
                     }
                 );
         }
     })
+}
+
+function open_trip(number) {
+    window.opener.show_trip(number);
+    window.opener.focus(); // not working :(
 }
