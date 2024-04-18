@@ -50,10 +50,10 @@ def get_coordinates(city):
             
             c = yandex['results'][0]
 
-            for result in yandex['results']:
+            '''for result in yandex['results']:
                 if 'locality' in result['tags']:
                     c = result
-                    break
+                    break'''
             
             lat, lon = c['pos'].split(',')[::-1]
             cache[city] = (float(lat), float(lon))

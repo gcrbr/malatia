@@ -3,23 +3,21 @@ import glob
 import os
 
 class mHandler(http.server.SimpleHTTPRequestHandler):
-    http_path = 'interface'
+    main_path = '/'.join(__file__.split('/')[:-3])
+    http_path = main_path + '/interface'
     allowed = []
     def log_message(self, format, *args):
         pass
 
     def get_allowed_paths(self):
         if not self.allowed:
-            for path in glob.glob('interface/**', recursive=True):
+            for path in glob.glob(self.http_path + '/**', recursive=True):
                 self.allowed.append(path[len(self.http_path):])
         return self.allowed
 
-    def get_cwd(self):
-        return os.getcwd() + '/' + self.http_path
-
     def translate_path(self, path: str) -> str:
         if path in self.get_allowed_paths():
-            return self.get_cwd() + path
+            return self.http_path + path
         if path == '/data.json':
-            return os.getcwd() + '/data.json'
+            return self.main_path + '/data.json'
         return ''
