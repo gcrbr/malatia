@@ -4,7 +4,7 @@ import os
 
 class mHandler(http.server.SimpleHTTPRequestHandler):
     slash = '\\' if os.name == 'nt' else '/'
-    main_path = slash.join(__file__.split('/')[:-3])
+    main_path = slash.join(__file__.split(slash)[:-3])
     http_path = main_path + slash + 'interface'
     allowed = []
     def log_message(self, format, *args):
