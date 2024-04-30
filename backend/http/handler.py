@@ -13,12 +13,12 @@ class mHandler(http.server.SimpleHTTPRequestHandler):
     def get_allowed_paths(self):
         if not self.allowed:
             for path in glob.glob(self.http_path + self.slash + '**', recursive=True):
-                self.allowed.append(path[len(self.http_path):])
+                self.allowed.append(path[len(self.http_path):].replace(self.slash, '/'))
         return self.allowed
 
     def translate_path(self, path: str) -> str:
         if path in self.get_allowed_paths():
             return self.http_path + path
-        if path == self.slash + 'data.json':
+        if path == '/data.json':
             return self.main_path + self.slash + 'data.json'
         return ''
