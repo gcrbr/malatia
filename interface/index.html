@@ -10,7 +10,11 @@
 
     <body>
         <div id="main">
-            <span id="title"><i class="fa fa-train"></i> DEPARTURES FROM <small id="partenza"></small></span>
+            <div id="title-block">
+                <span id="title"><i class="fa fa-train"></i> DEPARTURES FROM <small id="partenza"></small></span>
+                <button id="mapbutton"><i class="fa fa-map"></i> View the map</button>
+                <button id="statsbutton"><i class="fa fa-chart-simple"></i> View stats</button>
+            </div>
             <table id="trips">
                 <tr>
                     <th>DATE</th>
@@ -23,8 +27,7 @@
             </table>
         </div>
         <div id="more">
-            <button id="loadbutton"><i class="fa fa-spinner"></i> Load more journeys</button>
-            <button id="mapbutton"><i class="fa fa-map"></i> View the map</button>
+            <button id="loadbutton"><i class="fa fa-spinner"></i> Load more journeys</button> <br>
         </div>
         <script type="text/javascript" src="assets/app.js"></script>
     </body>

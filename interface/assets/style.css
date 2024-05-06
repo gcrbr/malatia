@@ -19,12 +19,21 @@ body {
 }
 
 #title {
-    display: block;
+    display: inline-block;
     font-weight: bold;
     font-size: 35px;
-    border-bottom: 1px solid var(--screen);
     font-family: Arial;
     margin-bottom: 10px;
+}
+
+#title-block {
+    border-bottom: 1px solid var(--screen);
+    width: 100%;
+}
+
+#title-block > button {
+    font-size: 15px;
+    width: 200px;
 }
 
 #trips {

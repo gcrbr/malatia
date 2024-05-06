@@ -1,0 +1,36 @@
+:root {
+    --screen: #d07c15;
+    --screenHover: #b06912;
+    --led: "DotMatri";
+}
+
+@font-face {
+    font-family: "DotMatri";
+    src: url("dotmatri.woff");
+}
+
+body {
+    background: #000000;
+}
+
+#body {
+    height: 100%;
+    font-family: "DotMatri";
+    color: var(--screen);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#body > div {
+    margin: auto;
+}
+
+.barchart {
+    width: 40%;
+    height: 100% !important;
+    margin-bottom: 100px !important;
+}
+
+.piechart {
+    width: 50%;
+}

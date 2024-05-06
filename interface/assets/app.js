@@ -77,3 +77,4 @@ function show_trip(number) {
 document.body.onload = function() {get_trips();}
 document.querySelector('#loadbutton').onclick = function() {load_trips(10);}
 document.querySelector('#mapbutton').onclick = function() {window.open('map.html', '_blank', 'modal=yes');}
+document.querySelector('#statsbutton').onclick = function() {window.open('stats.html', '_blank', 'modal=yes');}

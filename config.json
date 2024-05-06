@@ -12,7 +12,8 @@
                 "flixbus": "40e096c1-8646-11e6-9066-549f350fcb0c",
                 "itabus": "NAP_T",
                 "ryanair": "NAP",
-                "italo": "NAC"
+                "italo": "NAC",
+                "trenitalia": "830009218"
             }
         },
         {
@@ -21,7 +22,8 @@
             "identifiers": {
                 "flixbus": "40de90ff-8646-11e6-9066-549f350fcb0c",
                 "itabus": "ROM_T",
-                "italo": "RM0"
+                "italo": "RM0",
+                "trenitalia": "830008349"
             }
         },
         {
@@ -30,7 +32,8 @@
             "identifiers": {
                 "flixbus": "40de71c6-8646-11e6-9066-549f350fcb0c",
                 "itabus": "FIR_T",
-                "italo": "SMN"
+                "italo": "SMN",
+                "trenitalia": "830006998"
             }
         },
         {
@@ -39,7 +42,8 @@
             "identifiers": {
                 "flixbus": "40dea03b-8646-11e6-9066-549f350fcb0c",
                 "itabus": "VEN_T",
-                "italo": "VE0"
+                "italo": "VE0",
+                "trenitalia": "830002998"
             }
         },
         {
@@ -48,14 +52,16 @@
             "identifiers": {
                 "flixbus": "40df3bba-8646-11e6-9066-549f350fcb0c",
                 "itabus": "BAR_T",
-                "italo": "BAC"
+                "italo": "BAC",
+                "trenitalia": "830011699"
             }
         },
         {
             "name": "Pescara",
             "country": "Italy",
             "identifiers": {
-                "flixbus": "40df3966-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40df3966-8646-11e6-9066-549f350fcb0c",
+                "trenitalia": "830007810"
             }
         },
         {
@@ -64,7 +70,8 @@
             "identifiers": {
                 "flixbus": "40ddcc6e-8646-11e6-9066-549f350fcb0c",
                 "itabus": "MIL_T",
-                "italo": "MI0"
+                "italo": "MI0",
+                "trenitalia": "830001650"
             }
         },
         {
@@ -72,7 +79,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40de9f2f-8646-11e6-9066-549f350fcb0c",
-                "italo": "TSC"
+                "italo": "TSC",
+                "trenitalia": "830003317"
             }
         },
         {
@@ -80,7 +88,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40e2b92f-8646-11e6-9066-549f350fcb0c",
-                "itabus": "AOT_T"
+                "itabus": "AOT_T",
+                "trenitalia": "830000137"
             }
         },
         {
@@ -89,7 +98,8 @@
             "identifiers": {
                 "flixbus": "40df3653-8646-11e6-9066-549f350fcb0c",
                 "itabus": "BOL_T",
-                "italo": "BC_"
+                "italo": "BC_",
+                "trenitalia": "830005999"
             }
         },
         {
@@ -98,7 +108,8 @@
             "identifiers": {
                 "flixbus": "40deee02-8646-11e6-9066-549f350fcb0c",
                 "itabus": "TOR_T",
-                "italo": "TO0"
+                "italo": "TO0",
+                "trenitalia": "830000996"
             }
         },
         {
@@ -169,7 +180,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40e2af46-8646-11e6-9066-549f350fcb0c",
-                "itabus": "PAM_T"
+                "itabus": "PAM_T",
+                "trenitalia": "830012792"
             }
         },
         {
@@ -177,7 +189,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "3af15103-05ad-49f1-8633-39395c4af63b",
-                "itabus": "AGR_T"
+                "itabus": "AGR_T",
+                "trenitalia": "830012216"
             }
         },
         {
@@ -185,7 +198,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "fb17adee-7d5b-4b10-8872-e930644061f2",
-                "itabus": "CAT_T"
+                "itabus": "CAT_T",
+                "trenitalia": "830012796"
             }
         },
         {
@@ -193,7 +207,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40e098df-8646-11e6-9066-549f350fcb0c",
-                "itabus": "BGG_T"
+                "itabus": "BGG_T",
+                "trenitalia": "830001529"
             }
         },
         {
@@ -201,7 +216,8 @@
             "country": "Italy",
             "identifiers": {
                 "flixbus": "40e2b9ed-8646-11e6-9066-549f350fcb0c",
-                "itabus": "MAN_T"
+                "itabus": "MAN_T",
+                "trenitalia": "830002336"
             }
         },
         {
@@ -210,7 +226,8 @@
             "identifiers": {
                 "flixbus": "40dea1ff-8646-11e6-9066-549f350fcb0c",
                 "itabus": "VER_T",
-                "italo": "VPN"
+                "italo": "VPN",
+                "trenitalia": "830002430"
             }
         },
         {
@@ -219,7 +236,8 @@
             "identifiers": {
                 "flixbus": "40e09993-8646-11e6-9066-549f350fcb0c",
                 "itabus": "REG_T",
-                "italo": "AAV"
+                "italo": "AAV",
+                "trenitalia": "830005254"
             }
         },
         {

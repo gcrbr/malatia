@@ -13,12 +13,12 @@ This simply displays the contents of the `data.json` file in a readable table fo
 ## Supported carriers
 | Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus | easyJet |
 |--------------------|--------------------|-------|---------|----------|------------|--------|------|
-| ✓ | ✓ | ✓ |         |          |            | ✓ | | |
+| ✓ | ✓ | ✓ |         |          | ✓ | ✓ | | |
 
-Note: Some carriers such as _Itabus_ and _Italo_, are only available in Italy.
+Note: Some carriers such as _Itabus_, _Trenitalia_ and _Italo_, are only available in Italy.
 
 ## Installation
-The only required dependencies are `dateutil` e `requests`, you can install them with the following command:
+The only required dependencies are `dateutil` and `requests`, you can install them with the following command:
 ```bash
 pip install python-dateutil requests
 ```
@@ -48,7 +48,7 @@ It is important to make sure that the city selected as the departure supports al
 In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.
 
 ## Credits
-[Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font.
+[Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font
 
 ## Technologies used
 - LeafletJS: Map interface
