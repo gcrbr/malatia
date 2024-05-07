@@ -18,9 +18,9 @@ This simply displays the contents of the `data.json` file in a readable table fo
 Note: Some carriers such as _Itabus_, _Trenitalia_ and _Italo_, are only available in Italy.
 
 ## Installation
-The only required dependencies are `dateutil` and `requests`, you can install them with the following command:
+The required dependencies are `dateutil`, `requests` and `colorama`, you can install them with the following command:
 ```bash
-pip install python-dateutil requests
+pip install python-dateutil requests colorama
 ```
 
 ## Usage
