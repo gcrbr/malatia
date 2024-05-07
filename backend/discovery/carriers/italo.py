@@ -108,7 +108,7 @@ class Main(multidiscovery.Multidiscovery):
                             duration=(self.parse_date(train['STA'])-dpt).seconds/60,
                             price=price,
                             arrival_country='Italy'
-                        ).to_dict()
+                        )
                     )
         except:
             pass

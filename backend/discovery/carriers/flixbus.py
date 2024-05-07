@@ -38,7 +38,7 @@ class Main(multidiscovery.Multidiscovery):
                             duration=(_trip['duration']['hours'] * 60) + _trip['duration']['minutes'],
                             price=price,
                             arrival_country=p[1]
-                        ).to_dict()
+                        )
                     )
         except:
             pass

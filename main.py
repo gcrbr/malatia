@@ -2,27 +2,39 @@ from backend.discovery import trip
 from backend.http import handler
 from backend import config
 import threading
+import colorama
 import argparse
 import os.path
 import glob
 import time
 import json
+import sys
+
+def err(text, _exit=False):
+    print(f'\n{colorama.Fore.RED}(!) {text}{colorama.Style.RESET_ALL}')
+    if _exit:
+        exit(1)
+
+data_file = 'data.json'
 
 def discovery_loop(carriers, delay, offset):
     while True:
         trips = []
         for carrier in carriers:
-            print(f'(!) Searching for journeys on \'{carrier.__name__}\'')
+            start_time = time.time()
+            announce = f'{colorama.Fore.GREEN}(!) Searching for journeys on \'{carrier.__name__}\''
+            sys.stdout.write(announce + '\r')
             for d in range(offset + 1):
                 try:
                     trips += carrier.Main().search_trips(d)
                 except:
                     pass
-        trips.sort(key=lambda t: t['price'])
-        file = open('data.json', 'w')
-        file.write(json.dumps(trips))
+            sys.stdout.write(f'{announce} ({round(time.time() - start_time, 2)}s){colorama.Style.RESET_ALL}\n')
+        trips.sort(key=lambda t: t.price)
+        file = open(data_file, 'w')
+        file.write(json.dumps(trips, cls=trip.TripEncoder))
         file.close()
-        print(f'\n(!) {len(trips)} journeys saved on data.json')
+        print(f'\n{colorama.Fore.YELLOW}(!) {len(trips)} journeys saved on {data_file}{colorama.Style.RESET_ALL}')
         time.sleep(delay)
 
 def run_http_server(port):
@@ -41,15 +53,13 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
 
-    print('MALATÌA <github.com/gcrbr>')
+    print(f'{colorama.Back.YELLOW}MALATÌA <github.com/gcrbr>{colorama.Style.RESET_ALL}')
     
     if type(args.offset) is not int and not args.offset.isnumeric():
-        print('\n(!) Invalid value provided for \'offest\'')
-        exit(1)
+        err('Invalid value provided for \'offset\'', True)
     
     if type(args.port) is not int and not args.port.isnumeric():
-        print('\n(!) Invalid value provided for \'port\'')
-        exit(1)
+        err('Invalid value provided for \'port\'', True)
     
     args.port = int(args.port)
     
@@ -74,13 +84,12 @@ if __name__ == '__main__':
         try:
             carriers.append(__import__('backend.discovery.carriers.' + c, fromlist=[None]))
         except ImportError:
-            print(f'\n(!) Could not find the carrier \'{c}\'')
-            exit(1)
+            err('Could not find the carrier \'{c}\'', True)
 
     if args.interface or args.interfaceonly:
         import http.server
         threading.Thread(target=run_http_server, args=(args.port,)).start()
-        print(f'HTTP Server running on localhost:{args.port}')
+        print(f'{colorama.Fore.YELLOW}HTTP Server running on localhost:{args.port}{colorama.Style.RESET_ALL}')
     
     print('')
 

@@ -27,7 +27,7 @@ class Main(multidiscovery.Multidiscovery):
                             duration=(dateutil.parser.isoparse(_trip['arrival_timestamp']) - dateutil.parser.isoparse(_trip['departure_timestamp'])).seconds/60,
                             price=price,
                             arrival_country='Italy'
-                        ).to_dict()
+                        )
                     )
         except:
             pass

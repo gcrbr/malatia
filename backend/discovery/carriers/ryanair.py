@@ -34,7 +34,7 @@ class Main(discovery.Discovery):
                             duration=(dateutil.parser.parse(flight['arrivalDate'])-dateutil.parser.parse(flight['departureDate'])).seconds/60,
                             price=price,
                             arrival_country=flight['arrivalAirport']['countryName']
-                        ).to_dict()
+                        )
                     )
         except: 
             pass

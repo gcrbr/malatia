@@ -3,7 +3,9 @@ from backend.discovery import trip
 import dateutil.parser
 import datetime
 import json
+import time
 
+DELAY = 1
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
         format = ('name', 'identifiers.trenitalia')
@@ -37,15 +39,19 @@ class Main(multidiscovery.Multidiscovery):
                 'bikeFilter': False
             }
         }
-        search_frecce = self.session.get('https://www.lefrecce.it/Channels.Website.BFF.WEB/website/ticket/solutions', json=search_data).text
-        if not 'Access Denied' in search_frecce: # Trenitalia does rate-limit requests
+        try:
+            search_frecce = self.session.get('https://www.lefrecce.it/Channels.Website.BFF.WEB/website/ticket/solutions', json=search_data).text
+            if 'Access Denied' in search_frecce: # Trenitalia does rate-limit requests
+                return
             search_frecce = json.loads(search_frecce)
             search_data['criteria']['frecceOnly'] = False
             search_data['criteria']['intercityOnly'] = True
-            search_intercity = self.session.get('https://www.lefrecce.it/Channels.Website.BFF.WEB/website/ticket/solutions', json=search_data).json()
+            search_intercity = self.session.get('https://www.lefrecce.it/Channels.Website.BFF.WEB/website/ticket/solutions', json=search_data).text
+            if 'Access Denied' in search_intercity:
+                return
+            search_intercity = json.loads(search_intercity)
             solutions = search_frecce['solutions'] + search_intercity['solutions']
             for _trip in solutions:
-                try:
                     if (price := _trip['solution']['price']['amount']) < trip.good_price and price > 0:
                         self.trips.append(
                             trip.Trip(
@@ -56,8 +62,8 @@ class Main(multidiscovery.Multidiscovery):
                                 duration=(dateutil.parser.isoparse(_trip['arrivalTime']) - dateutil.parser.isoparse(_trip['departureTime'])).seconds/60,
                                 price=price,
                                 arrival_country='Italy'
-                            ).to_dict()
+                            )
                         )
-                except:
-                    pass
-    
+        except:
+            pass
+        time.sleep(DELAY) # Needed for rate-limiting

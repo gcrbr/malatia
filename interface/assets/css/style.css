@@ -6,12 +6,13 @@
 
 @font-face {
     font-family: "DotMatri";
-    src: url("dotmatri.woff");
+    src: url("../fonts/dotmatri.woff");
 }
 
 body {
     background: black;
     color: var(--screen);
+    margin: 0;
 }
 
 #main {
@@ -29,11 +30,6 @@ body {
 #title-block {
     border-bottom: 1px solid var(--screen);
     width: 100%;
-}
-
-#title-block > button {
-    font-size: 15px;
-    width: 200px;
 }
 
 #trips {
@@ -92,4 +88,85 @@ button {
 button:hover {
     cursor: pointer;
     background: var(--screenHover);
+}
+
+button.button-small {
+    font-size: 15px;
+    width: 200px;
+}
+
+/* Map */
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+.leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-popup-content-wrapper {
+    background: black;
+    color: var(--screen);
+    font-family: var(--led);
+    text-transform: uppercase;
+    font-size: 15px;
+}
+
+.leaflet-popup-tip-container {
+    display: none;
+}
+
+#modal {
+    top: 0;
+    z-index: 999;
+    position: fixed;
+    background: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+    display: none;
+}
+
+#modal-body {
+    background: #000000;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    position: inherit;
+    font-family: "DotMatri";
+    color: var(--screen);
+    text-transform: uppercase;
+    width: 500px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+/* Stats */
+
+#body {
+    height: 100%;
+    font-family: "DotMatri";
+    color: var(--screen);
+    text-transform: uppercase;
+    text-align: center;
+}
+
+#body > div {
+    margin: auto;
+}
+
+.barchart {
+    width: 40%;
+    height: 100% !important;
+    margin-bottom: 100px !important;
+}
+
+.piechart {
+    width: 50%;
 }

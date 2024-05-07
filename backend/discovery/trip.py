@@ -1,4 +1,5 @@
 from backend import geocoding
+import json
 
 good_price = 20
 class Trip:
@@ -56,3 +57,6 @@ class Trip:
             'formatted_price': self.format_price()
         }
 
+class TripEncoder(json.JSONEncoder):
+    def default(self, trip):
+        return trip.to_dict()
