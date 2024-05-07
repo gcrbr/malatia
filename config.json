@@ -1,7 +1,7 @@
 {
     "configuration": {
         "departure": "Napoli",
-        "price_cap": 20,
+        "price_cap": 200,
         "delay": 18000
     },
     "cities": [

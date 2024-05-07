@@ -1,6 +1,7 @@
 from backend.discovery import multidiscovery
 from backend.discovery import trip
 import datetime
+import json
 
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
@@ -19,13 +20,13 @@ class Main(multidiscovery.Multidiscovery):
             json={
                 'Login': {
                     'Domain': 'WWW',
-                    'VersionNumber': '4.2.2',
+                    'VersionNumber': '4.4.2',
                     'Password': 'F3hoM!n0$!ZE',
                     'Username': 'WWW_Anonymous'
                 },
                 'SourceSystem': 3
             },
-        ).json().get('Signature')
+        ).text#json().get('Signature')
     
     def get_dates(self, offset=0):
         format = '/Date(%d+0000)/'
@@ -94,7 +95,12 @@ class Main(multidiscovery.Multidiscovery):
                 headers={
                     'Content-Type': 'application/json'
                 }
-            ).json()
+            ).text
+            
+            if 'Access Denied' in search: # rate limit
+                return
+            
+            search = json.loads(search)
 
             for train in search['JourneyDateMarkets'][0]['Journeys']:
                 train = train['Segments'][0]
@@ -110,6 +116,6 @@ class Main(multidiscovery.Multidiscovery):
                             arrival_country='Italy'
                         )
                     )
-        except:
+        except Exception as e:
             pass
             

@@ -4,7 +4,7 @@
 
 Tool to disappear at low cost and under mysterious circumstances.
 
-This program deals with searching for low-cost trips on different carriers from a predetermined departure location to designated locations or otherwise offered by the carrier.
+This program searchs for low-cost trips on different carriers from a predetermined departure location to designated locations or otherwise offered by the carrier.
 
 The results are viewable through an interface made with HTML, CSS and basic JavaScript. 
 
@@ -46,6 +46,11 @@ Within the `config.json` file it is possible to change:
 It is important to make sure that the city selected as the departure supports all the carriers used. 
 
 In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.
+
+## Known Issues
+Some carriers such as _Italo_ and _Trenitalia_ do rate limit HTTP requests, so the journey search may fail most of the times. 
+
+I am looking for a solution.
 
 ## Credits
 [Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font
