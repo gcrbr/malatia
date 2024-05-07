@@ -52,4 +52,5 @@ In short - you need to verify that for the given city, all fields within `identi
 
 ## Technologies used
 - LeafletJS: Map interface
-- Yandex maps: Geocoding API
+- Yandex Maps: Geocoding
+- Chart.js: Data charts
