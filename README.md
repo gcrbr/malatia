@@ -48,14 +48,12 @@ It is important to make sure that the city selected as the departure supports al
 In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.
 
 ## Known Issues
-Some carriers such as _Italo_ and _Trenitalia_ do rate limit HTTP requests, so the journey search may fail most of the times. 
-
-I am looking for a solution.
+(...)
 
 ## Credits
 [Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font
 
 ## Technologies used
 - LeafletJS: Map interface
-- Yandex Maps: Geocoding
+- Waze: Geocoding
 - Chart.js: Data charts

@@ -6,30 +6,7 @@ class Config:
         self.read_config_file()
 
     def set_default_config(self):
-        self.config = {
-            'configuration': {
-                'departure': 'Napoli'
-            },
-            'cities': [
-                {
-                    'name': 'Napoli',
-                    'country': 'Italy',
-                    'identifiers': {
-                        'flixbus': '40e096c1-8646-11e6-9066-549f350fcb0c',
-                        'itabus': 'NAP_T',
-                        'ryanair': 'NAP'
-                    }
-                },
-                {
-                    'name': 'Roma',
-                    'country': 'Italy',
-                    'identifiers': {
-                        'flixbus': '40de90ff-8646-11e6-9066-549f350fcb0c',
-                        'itabus': 'ROM_T'
-                    }
-                }
-            ]
-        }
+        self.config = {}
 
     def read_config_file(self):
         if not os.path.isfile('config.json'):

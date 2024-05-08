@@ -1,7 +1,6 @@
 from backend import geocoding
 import json
 
-good_price = 20
 class Trip:
     date = None
     carrier = None

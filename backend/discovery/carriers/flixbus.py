@@ -2,6 +2,8 @@ from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
 
+EXTERNAL_OFFSET = True
+ENABLED = True
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
         format = ('name', 'country', 'identifiers.flixbus')
@@ -28,7 +30,7 @@ class Main(multidiscovery.Multidiscovery):
             }).json()
             for k in search.get('trips')[0]['results']:
                 _trip = search.get('trips')[0]['results'][k]
-                if (price := _trip['price']['total']) < trip.good_price and price > 0:
+                if (price := _trip['price']['total']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
                     self.trips.append(
                         trip.Trip(
                             date=dateutil.parser.parse(_trip['departure']['date']),

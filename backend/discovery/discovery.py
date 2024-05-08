@@ -14,7 +14,7 @@ class Discovery:
         self.departure = departure
     
     def get_date(self, format, offset=0):
-        return (datetime.datetime.now() + datetime.timedelta(offset+1)).strftime(format)
+        return (datetime.datetime.now() + datetime.timedelta(offset)).strftime(format)
 
     def search_trips(self, offset=0):
         pass

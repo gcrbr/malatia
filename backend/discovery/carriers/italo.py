@@ -3,6 +3,8 @@ from backend.discovery import trip
 import datetime
 import json
 
+EXTERNAL_OFFSET = True
+ENABLED = False
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
         if 'Accept' in self.session.headers:
@@ -26,11 +28,11 @@ class Main(multidiscovery.Multidiscovery):
                 },
                 'SourceSystem': 3
             },
-        ).text#json().get('Signature')
+        ).json().get('Signature')
     
     def get_dates(self, offset=0):
         format = '/Date(%d+0000)/'
-        date = datetime.datetime.now() + datetime.timedelta(offset+1)
+        date = datetime.datetime.now() + datetime.timedelta(offset)
         d_date = datetime.datetime(
             day=date.day, 
             month=date.month, 
@@ -104,7 +106,7 @@ class Main(multidiscovery.Multidiscovery):
 
             for train in search['JourneyDateMarkets'][0]['Journeys']:
                 train = train['Segments'][0]
-                if (price := train['Fares'][0]['FullFarePrice']) <= trip.good_price and price > 0:
+                if (price := train['Fares'][0]['FullFarePrice']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
                     self.trips.append(
                         trip.Trip(
                             date=(dpt:=self.parse_date(train['STD'])),

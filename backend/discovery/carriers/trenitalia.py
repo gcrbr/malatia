@@ -5,6 +5,8 @@ import datetime
 import json
 import time
 
+EXTERNAL_OFFSET = True
+ENABLED = False
 DELAY = 1
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
@@ -16,7 +18,7 @@ class Main(multidiscovery.Multidiscovery):
     
     def get_date(self, offset):
         now = datetime.datetime.now()
-        return (datetime.datetime(now.year, now.month, now.day) + datetime.timedelta(offset+1)).isoformat()
+        return (datetime.datetime(now.year, now.month, now.day) + datetime.timedelta(offset)).isoformat()
 
     def search_location(self, p, offset):
         search_data = {
@@ -52,7 +54,7 @@ class Main(multidiscovery.Multidiscovery):
             search_intercity = json.loads(search_intercity)
             solutions = search_frecce['solutions'] + search_intercity['solutions']
             for _trip in solutions:
-                    if (price := _trip['solution']['price']['amount']) < trip.good_price and price > 0:
+                    if (price := _trip['solution']['price']['amount']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
                         self.trips.append(
                             trip.Trip(
                                 date=dateutil.parser.isoparse(_trip['departureTime']),

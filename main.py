@@ -21,12 +21,17 @@ def discovery_loop(carriers, delay, offset):
     while True:
         trips = []
         for carrier in carriers:
+            if not carrier.ENABLED:
+                continue
             start_time = time.time()
             announce = f'{colorama.Fore.GREEN}(!) Searching for journeys on \'{carrier.__name__}\''
             sys.stdout.write(announce + '\r')
-            for d in range(offset + 1):
+            _offset = 1
+            if carrier.EXTERNAL_OFFSET:
+                _offset = offset + 1
+            for d in range(_offset):
                 try:
-                    trips += carrier.Main().search_trips(d)
+                    trips += carrier.Main().search_trips(d if carrier.EXTERNAL_OFFSET else (offset + 1))
                 except:
                     pass
             sys.stdout.write(f'{announce} ({round(time.time() - start_time, 2)}s){colorama.Style.RESET_ALL}\n')
@@ -41,7 +46,7 @@ def run_http_server(port):
     http.server.HTTPServer(('localhost', port), handler.mHandler).serve_forever()
 
 if __name__ == '__main__':
-    c = config.Config()
+    conf = config.Config()
 
     parser = argparse.ArgumentParser()
 
@@ -65,14 +70,15 @@ if __name__ == '__main__':
     
     args.offset = int(args.offset)
 
-    price_cap = c.config.get('configuration').get('price_cap')
+    price_cap = conf.config.get('configuration').get('price_cap')
     if not price_cap:
         price_cap = 20
-    trip.good_price = price_cap
+        conf.config['configuration']['price_cap'] = price_cap
 
-    delay = c.config.get('configuration').get('delay')
+    delay = conf.config.get('configuration').get('delay')
     if not delay:
         delay = 18000
+        conf.config['configuration']['delay'] = delay
 
     carriers = []
     if args.carriers:

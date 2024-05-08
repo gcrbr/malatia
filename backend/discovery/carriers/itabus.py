@@ -2,6 +2,8 @@ from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
 
+EXTERNAL_OFFSET = True
+ENABLED = True
 class Main(multidiscovery.Multidiscovery):
     def __init__(self):
         format = ('name', 'identifiers.itabus')
@@ -17,7 +19,7 @@ class Main(multidiscovery.Multidiscovery):
         try:
             search = self.session.get(f'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/it/Api-Travels?origin={self.departure[1]}&destination={p[1]}&datestart={self.get_date(offset)}&adults=1&children=0&membership=false').json()
             for _trip in search['data']['outbound']['routes']:
-                if (price := _trip['bundles']['BASIC'][0]['price']) < trip.good_price and price > 0:
+                if (price := _trip['bundles']['BASIC'][0]['price']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
                     self.trips.append(
                         trip.Trip(
                             date=dateutil.parser.isoparse(_trip['departure_timestamp']),
