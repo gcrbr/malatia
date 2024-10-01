@@ -1,4 +1,5 @@
 import os.path
+import utils
 import json
 
 class Config:
@@ -31,7 +32,9 @@ class Config:
 
     def get_departure_city(self):
         dep_city = self.config.get('configuration').get('departure')
-        return self.get_city('name', dep_city)
+        if not (r := self.get_city('name', dep_city)):
+            utils.err('Invalid departure city, please check your config file', True)
+        return r
     
     def get_city_identifier(self, city, carrier):
         return self.get_city('name', city).get('identifiers').get(carrier)
@@ -49,9 +52,9 @@ class Config:
                 c = city.get(sub[0])
                 for dot in sub[1:]:
                     c = c.get(dot)
-            if not c:
-                return None
             _tuple.append(c)
+            if c == None:
+                return c
         return tuple(_tuple)
 
     def get_formatted_cities(self, format):

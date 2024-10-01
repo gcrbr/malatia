@@ -5,15 +5,11 @@ import threading
 import colorama
 import argparse
 import os.path
+import utils
 import glob
 import time
 import json
 import sys
-
-def err(text, _exit=False):
-    print(f'\n{colorama.Fore.RED}(!) {text}{colorama.Style.RESET_ALL}')
-    if _exit:
-        exit(1)
 
 data_file = 'data.json'
 
@@ -32,8 +28,8 @@ def discovery_loop(carriers, delay, offset):
             for d in range(_offset):
                 try:
                     trips += carrier.Main().search_trips(d if carrier.EXTERNAL_OFFSET else (offset + 1))
-                except:
-                    pass
+                except Exception as e:
+                    print(f'[Error][{carrier}] {e}')
             sys.stdout.write(f'{announce} ({round(time.time() - start_time, 2)}s){colorama.Style.RESET_ALL}\n')
         trips.sort(key=lambda t: t.price)
         file = open(data_file, 'w')
@@ -55,16 +51,17 @@ if __name__ == '__main__':
     parser.add_argument('-o', '--offset', help='Number of days after the current date for which journeys need to be searched (default: 3)', default=3)
     parser.add_argument('-c', '--carriers', help='Manually select the carriers to research journeys on, separated by a comma (es. "-c itabus,flixbus", default: all)')
     parser.add_argument('-io', '--interfaceonly', help='Only runs the interface, without looking for new journeys', action='store_true')
+    parser.add_argument('-ng', '--no-geocoding', help='Disable geocoding for faster search (the map will not work)', action='store_true')
 
     args = parser.parse_args()
 
-    print(f'{colorama.Back.YELLOW}MALATÌA <github.com/gcrbr>{colorama.Style.RESET_ALL}')
+    utils.print_intro()
     
     if type(args.offset) is not int and not args.offset.isnumeric():
-        err('Invalid value provided for \'offset\'', True)
+        utils.err('Invalid value provided for \'offset\'', True)
     
     if type(args.port) is not int and not args.port.isnumeric():
-        err('Invalid value provided for \'port\'', True)
+       utils.err('Invalid value provided for \'port\'', True)
     
     args.port = int(args.port)
     
@@ -90,7 +87,10 @@ if __name__ == '__main__':
         try:
             carriers.append(__import__('backend.discovery.carriers.' + c, fromlist=[None]))
         except ImportError:
-            err('Could not find the carrier \'{c}\'', True)
+            utils.err('Could not find the carrier \'{c}\'', True)
+
+    if args.no_geocoding:
+        trip.GEOCODING = False
 
     if args.interface or args.interfaceonly:
         import http.server

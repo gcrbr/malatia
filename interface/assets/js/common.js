@@ -24,14 +24,83 @@ function hide_modal() {
 }
 
 function build_tr_from_trip(trip) {
-    tr = '<tr>';
-    tr += '<td>' + trip.date + '</td>';
-    tr += '<td>' + trip.time + '</td>';
-    //tr += '<td>' + trip.departure + '</td>';
-    tr += '<td>' + trip.arrival + '</td>';
-    tr += '<td>' + parse_carrier_logo(trip.carrier) + '</td>';
-    tr += '<td>' + trip.duration + '</td>';
-    tr += '<td>' + trip.formatted_price + ' EUR</td>';
-    tr += '</tr>';
+    tr = document.createElement('tr');
+
+    td = document.createElement('td');
+    td.innerHTML = trip.date;
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = trip.time;
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = trip.arrival;
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = parse_carrier_logo(trip.carrier);
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = trip.duration;
+    tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = trip.formatted_price;
+    tr.appendChild(td);
     return tr;
+}
+
+function toggle_trip_group(id) {
+    for(let block of document.getElementsByClassName('group_' + id)) {
+        block.style.display = block.style.display == 'none' ? 'table-row' : 'none';
+    }
+}
+
+var counter = 0;
+function build_tr_from_group_of_trips(trips) {
+    sub_trs = [];
+    trips.forEach(trip => {
+        let trip_block = build_tr_from_trip(trip);
+        trip_block.style.display = 'none';
+        trip_block.setAttribute('class', 'group_' + counter);
+        sub_trs.push(trip_block);
+    });
+
+    container = document.createElement('tbody');
+
+    m_tr = document.createElement('tr');
+    m_tr.setAttribute('id', 'toggable');
+    container.setAttribute('onclick', 'toggle_trip_group(' + counter + ')');
+
+    td = document.createElement('td');
+    td.innerHTML = '↓';
+    m_tr.appendChild(td);
+
+    td = document.createElement('td');
+    m_tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = trips[0].arrival;
+    m_tr.appendChild(td);
+
+    td = document.createElement('td');
+    m_tr.appendChild(td);
+
+    td = document.createElement('td');
+    m_tr.appendChild(td);
+
+    td = document.createElement('td');
+    td.innerHTML = 'FROM ' + trips[0].formatted_price;
+    m_tr.appendChild(td);
+
+    container.appendChild(m_tr);
+
+    for(let sub_tr of sub_trs) {
+        container.appendChild(sub_tr);
+    }
+
+    ++counter;
+    return container;
 }

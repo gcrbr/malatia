@@ -1,6 +1,7 @@
 from backend import geocoding
 import json
 
+GEOCODING = True
 class Trip:
     date = None
     carrier = None
@@ -48,7 +49,7 @@ class Trip:
             'time': self.format_time(),
             'departure': self.departure,
             'arrival': self.arrival,
-            'arrival_loc': geocoding.get_coordinates(f'{self.arrival}, {self.arrival_country}'),
+            'arrival_loc': geocoding.get_coordinates(f'{self.arrival}, {self.arrival_country}') if GEOCODING else (0, 0),
             'arrival_country': self.arrival_country,
             'carrier': self.carrier,
             'duration': self.format_duration(),

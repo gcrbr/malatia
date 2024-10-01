@@ -36,6 +36,17 @@ python main.py -i
 
 You can see the other options by using the parameter `-h` or `--help`.
 
+## Population
+NOTE: This feature is still in the testing phase.
+
+Some carriers such as _Flixbus_ and _Itabus_ support automatic destination finding for your config file.
+
+```bash
+python populate.py -c <departing city>
+```
+
+The generated config file is "raw", it must be manually corrected for correct functioning.
+
 ## Configuration
 Within the `config.json` file it is possible to change:
 - The starting city from which to search for trips

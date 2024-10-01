@@ -1,6 +1,7 @@
 from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
+import utils
 
 EXTERNAL_OFFSET = True
 ENABLED = True
@@ -28,6 +29,10 @@ class Main(multidiscovery.Multidiscovery):
                 'search_by': 'cities',
                 'include_after_midnight_rides': '1'
             }).json()
+            
+            if search.get('code') == 400:
+                return
+
             for k in search.get('trips')[0]['results']:
                 _trip = search.get('trips')[0]['results'][k]
                 if (price := _trip['price']['total']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
@@ -42,5 +47,6 @@ class Main(multidiscovery.Multidiscovery):
                             arrival_country=p[1]
                         )
                     )
-        except:
+        except Exception as e:
+            #utils.err(f'[{__name__}]: {e}')
             pass

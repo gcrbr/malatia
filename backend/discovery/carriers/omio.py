@@ -1,6 +1,7 @@
 from backend.discovery import multidiscovery
 from backend.discovery import trip
 import dateutil.parser
+import utils
 
 EXTERNAL_OFFSET = True
 ENABLED = True
@@ -60,6 +61,9 @@ class Main(multidiscovery.Multidiscovery):
             search = {'query':{'searchModes':{'train':{'status':'inprogress'}}}}
             attempt = 0
 
+            if not 'searchId' in search_init:
+                return
+
             while search['query']['searchModes']['train']['status'] == 'inprogress' and attempt < 20: # 20 Refresh attempts
                 search = self.session.get('https://www.omio.com/offline-search-api/rest/api/v5/results', params={
                     'direction': 'outbound',
@@ -89,6 +93,7 @@ class Main(multidiscovery.Multidiscovery):
                             arrival_country='Italy'
                         )
                     )
-        except:
+        except Exception as e:
+            #utils.err(f'[{__name__}]: {e}')
             pass
 

@@ -3,13 +3,17 @@ trip_list = Array();
 var shown_trips = 0;
 
 function parse_trips(trips) {
+    var groups = {};
     trips.forEach(trip => {
+        groups[trip.arrival] = trip.arrival in groups ? groups[trip.arrival].concat(trip) : [trip];
         if(!set) {
             set = true;
             $('#partenza').innerHTML = trip.departure.toUpperCase();
         }
-        trip_list.push(build_tr_from_trip(trip));
     });
+    for (const [_, group] of Object.entries(groups)) {
+        trip_list.push(group.length > 1 ? build_tr_from_group_of_trips(group) : build_tr_from_trip(group[0]));
+    }
     load_trips(10);
 }
 
@@ -18,7 +22,8 @@ function load_trips(amount) {
         pop = trip_list.shift();
         if(pop) {
             shown_trips++;
-            $('#trips').innerHTML += pop;
+            //$('#trips').innerHTML += pop;
+            $('#trips').appendChild(pop);
         }
     }
     if(trip_list.length == 0) {

@@ -1,6 +1,7 @@
 from backend import config
 import datetime
 import requests
+import utils
 
 class Discovery:
     session = requests.session()
@@ -12,6 +13,9 @@ class Discovery:
 
     def __init__(self, departure):
         self.departure = departure
+        if not self.departure:
+            utils.err(f'Unable to determine the departure for a carrier, please check your config file')
+            self.search_trips = lambda *_:[]
     
     def get_date(self, format, offset=0):
         return (datetime.datetime.now() + datetime.timedelta(offset)).strftime(format)

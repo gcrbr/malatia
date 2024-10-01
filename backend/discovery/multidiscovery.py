@@ -13,6 +13,8 @@ class Multidiscovery(discovery.Discovery):
     def search_trips(self, offset=0):
         threads = []
         for p in self.arrivals:
+            if not p:
+                continue
             thread = threading.Thread(target=self.search_location, args=(p, offset,))
             threads.append(thread)
             thread.start()

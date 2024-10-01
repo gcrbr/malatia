@@ -1,6 +1,7 @@
 from backend.discovery import discovery
 from backend.discovery import trip
 import dateutil.parser
+import utils
 
 EXTERNAL_OFFSET = False
 ENABLED = True
@@ -24,6 +25,10 @@ class Main(discovery.Discovery):
                 'outboundDepartureTimeFrom': '00:00',
                 'outboundDepartureTimeTo': '23:59'
             }).json()
+
+            if not 'fares' in search:
+                return []
+
             for k in search['fares']:
                 flight = k['outbound']
                 if (price := flight['price']['value']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
@@ -38,6 +43,7 @@ class Main(discovery.Discovery):
                             arrival_country=flight['arrivalAirport']['countryName']
                         )
                     )
-        except: 
+        except Exception as e: 
+            #utils.err(f'[{__name__}]: {e}')
             pass
         return trips
