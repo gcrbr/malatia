@@ -35,7 +35,7 @@ class Main(discovery.Discovery):
                     trips.append(
                         trip.Trip(
                             date=dateutil.parser.parse(flight['departureDate']),
-                            departure='Napoli',
+                            departure=self.departure,
                             arrival=flight['arrivalAirport']['city']['name'],
                             carrier=self.base_name(__name__),
                             duration=(dateutil.parser.parse(flight['arrivalDate'])-dateutil.parser.parse(flight['departureDate'])).seconds/60,

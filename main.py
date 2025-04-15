@@ -81,7 +81,7 @@ if __name__ == '__main__':
     if args.carriers:
         ref = [c.strip() for c in args.carriers.split(',')]
     else:
-        ref = [os.path.basename(f)[:-3] for f in glob.glob('backend/discovery/carriers/*.py')]
+        ref = utils.get_source_files('backend.discovery.carriers')
     
     for c in ref:
         try:

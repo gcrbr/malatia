@@ -43,6 +43,6 @@ $('#modal-close').onclick = hide_modal;
 
 function open_trip(number) {
     modalContent = $('#modal-content');
-    modalContent.innerHTML = '<table>' + build_tr_from_trip(trips[number]) + '</table>';
+    modalContent.innerHTML = '<table>' + build_tr_from_trip(trips[number]).innerHTML + '</table>';
     show_modal();
 }

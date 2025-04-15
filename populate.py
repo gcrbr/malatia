@@ -5,76 +5,103 @@ import utils
 import glob
 import json
 import os
-
-def err(text, _exit=False):
-    print(f'\n{colorama.Fore.RED}(!) {text}{colorama.Style.RESET_ALL}')
-    if _exit:
-        exit(1)
+import math
+from backend.populate import model
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('-c', '--city', help='Enter the departure city for which to search the destinations (es. "-c naples")')
+    parser.add_argument('-d', '--departure', help='Enter the departure city for which to search the destinations (es. "-d naples")')
+    parser.add_argument('-c', '--carriers', help='Manually select the carriers to research on, separated by a comma (es. "-c itabus,flixbus", default: all)')
 
     args = parser.parse_args()
 
     utils.print_intro()
     print(f'{colorama.Fore.YELLOW}This feature is still in the testing phase{colorama.Style.RESET_ALL}\n')
 
-    if not args.city:
+    if not args.departure:
         utils.err('Missing departure city', True)
     
-    ref = [os.path.basename(f)[:-3] for f in glob.glob('backend/populate/carriers/*.py')]
-    carriers = []
-    full_reach = []
-    threads = []
-    for c in ref:
+    carriers = list()
+    full_reach = list()
+    threads = list()
+    for c in utils.get_source_files('backend.populate.carriers'):
+        if args.carriers and not c in args.carriers.lower().split(','):
+            continue
+
         carrier = __import__('backend.populate.carriers.' + c, fromlist=[None])
         carrier_name = c.split('.')[-1]
+
         print(f'{colorama.Fore.GREEN}(!) Searching destinations for \'{carrier_name}\'')
 
-        def _(carrier, carrier_name):
+        def add_place(carrier_name, place):
             global full_reach
-            reach = carrier.Main().get_reach(args.city)
+            print(f'{colorama.Fore.CYAN}(>) Found destination \'{place.name}\' on \'{carrier_name}\'{colorama.Style.RESET_ALL}')
+            place.carrier = carrier_name
+            full_reach.append(place)
+
+        def normalize(carrier_obj, carrier_name, reach):
             for place in reach:
-                if carrier.NORMALIZE:
-                    place = carrier.Main().normalize(place[3][0], place[3][1])
-                    if not place:
-                        continue
-                print(f'{colorama.Fore.CYAN}(>) Found destination \'{place[0]}\' on \'{carrier_name}\'{colorama.Style.RESET_ALL}')
-                full_reach.append({
-                    'name': place[0],
-                    'country': place[1],
-                    'identifiers': {
-                        carrier_name: place[2]
-                    }
-                })
-        
+                try:
+                    place = carrier_obj.normalize(place)
+                except:
+                    utils.err(f'Unable to normalize \'{place.name}\'')
+                if not place:
+                    continue
+                add_place(carrier_name, place)
+
+        def _(carrier, carrier_name):
+            carrier_obj = carrier.Main()
+            reach = carrier_obj.get_reach(args.departure)
+            
+            if carrier_obj.normalization:
+                ratio = 0.15
+                amt_threads = round(len(reach) * ratio)
+                reach_division = list()
+                for i in range(amt_threads):
+                    reach_division.append(list())
+                for i in range(len(reach)):
+                    reach_division[math.ceil(i * ratio) - 1].append(reach[i])
+
+                sub_threads = list()
+                for content in reach_division:
+                    sub_threads.append((t := threading.Thread(target=normalize, args=(carrier_obj, carrier_name, content,))))
+                    t.start()
+                for t in sub_threads:
+                    t.join()
+            else:
+                for place in reach:
+                    add_place(carrier_name, place)
+
         threads.append((t := threading.Thread(target=_, args=(carrier, carrier_name,))))
         t.start()
     
     for t in threads:
         t.join()
 
-    file = open('config.json', 'r+')
-
-    if not os.path.isfile('config.json') or not (data := file.read()):
-        file.write(json.dumps({
+    file = open('config.json', 'w+')
+    fallback = json.dumps({
             'configuration': {
-                'departure': args.city,
+                'departure': args.departure,
                 'price_cap': 20,
                 'delay': 18000
             },
             'cities': full_reach,
-        }, indent=4))
+        }, indent=4, cls=model.RouteEncoder)
+
+    if not os.path.isfile('config.json'):
+        file.write(fallback)
         file.close()
     else:
         try:
+            data = file.read()
             current = json.loads(data)
+            current['cities'] += full_reach
+            file.write(json.dumps(current, indent=4))
+            file.close()
         except:
             utils.err('Invalid JSON data in config.json')
-        current['cities'] += full_reach
-        file.write(json.dumps(current), indent=4)
-        file.close()
+            file.write(fallback)
+            file.close()
 
     print(f'\n{colorama.Fore.YELLOW}(!) {len(full_reach)} destinations saved on config.json{colorama.Style.RESET_ALL}')

@@ -49,6 +49,7 @@ function build_tr_from_trip(trip) {
     td = document.createElement('td');
     td.innerHTML = trip.formatted_price;
     tr.appendChild(td);
+    
     return tr;
 }
 

@@ -4,15 +4,36 @@ import io
 
 class GTFS:
     def __init__(self):
-        self.data = {}
+        self.data = dict()
     
     def parse_csv(self, csv):
-        content = []
+        content = list()
         csv = csv.splitlines()
         format = csv[0].split(',')
         for line in csv[1:]:
-            data = {}
-            fields = line.split(',')
+            data = dict()
+            fields = list()
+            
+            to_push = str()
+            quotes_pos = -1
+            for i in range(len(line)):
+                char = line[i]
+                if char == '"' and quotes_pos == -1:
+                    quotes_pos = i
+                if quotes_pos == -1:
+                    if char != ',':
+                        to_push += char
+                    else:
+                        fields.append(to_push)
+                        to_push = ''
+                else:
+                    if char == '"' and quotes_pos != i:
+                        quotes_pos = -1
+                    to_push += char
+                if i == len(line) - 1:
+                    fields.append(to_push)
+                    quotes_pos = -1
+            
             for i in range(0, len(format)):
                 data[format[i]] = fields[i]
             content.append(data)

@@ -13,7 +13,7 @@ This simply displays the contents of the `data.json` file in a readable table fo
 ## Supported carriers
 | Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus | easyJet |
 |--------------------|--------------------|-------|---------|----------|------------|--------|------|
-| ✓ | ✓ | ✓ |         |          | ✓ | ✓ | | |
+| ✓ | ✓ | ✓ |         | ✓ | ✓ | ✓ | | |
 
 Note: Some carriers such as _Itabus_, _Trenitalia_ and _Italo_, are only available in Italy.
 
@@ -37,12 +37,12 @@ python main.py -i
 You can see the other options by using the parameter `-h` or `--help`.
 
 ## Population
-NOTE: This feature is still in the testing phase.
+**NOTE**: This feature is still in the testing phase.
 
 Some carriers such as _Flixbus_ and _Itabus_ support automatic destination finding for your config file.
 
 ```bash
-python populate.py -c <departing city>
+python populate.py -d <departing city> [-c <carriers>]
 ```
 
 The generated config file is "raw", it must be manually corrected for correct functioning.
@@ -64,7 +64,8 @@ In short - you need to verify that for the given city, all fields within `identi
 ## Credits
 [Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font
 
-## Technologies used
+## Technologies and services used
 - LeafletJS: Map interface
 - Waze: Geocoding
 - Chart.js: Data charts
+- Xe.com: Currency conversion

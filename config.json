@@ -1,1269 +1,239 @@
 {
     "configuration": {
-        "departure": "Napoli",
+        "departure": "krakow",
         "price_cap": 20,
         "delay": 18000
     },
     "cities": [
         {
-            "name": "Vasto",
-            "country": "Italy",
+            "name": "Zakopane",
+            "country": "PL",
             "identifiers": {
-                "itabus": "VAS_T"
+                "flixbus": "40e27ae3-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Firenze",
-            "country": "Italy",
+            "name": "Nuremberg",
+            "country": "DE",
             "identifiers": {
-                "itabus": "FIR_T"
+                "flixbus": "40d90d0f-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Gioia Tauro",
-            "country": "Italy",
+            "name": "Tallinn",
+            "country": "EE",
             "identifiers": {
-                "itabus": "GIO_T"
+                "flixbus": "99c4fec7-3ecb-11ea-8017-02437075395e"
             }
         },
         {
-            "name": "Padova",
-            "country": "Italy",
+            "name": "Donovaly",
+            "country": "SK",
             "identifiers": {
-                "itabus": "PAD_T"
+                "flixbus": "00777fc8-b50c-48cf-8dc6-3f8fd034248e"
             }
         },
         {
-            "name": "Vibo Valentia",
-            "country": "Italy",
+            "name": "Vilnius",
+            "country": "LT",
             "identifiers": {
-                "itabus": "VIB_T"
+                "flixbus": "4f05a96a-0043-4215-bcac-8c35c081056e"
             }
         },
         {
-            "name": "Alberobello",
-            "country": "Italy",
+            "name": "Sopot",
+            "country": "PL",
             "identifiers": {
-                "itabus": "ABB_T"
+                "flixbus": "40e1aad3-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Cefal\u00f9",
-            "country": "Italy",
+            "name": "Opole",
+            "country": "PL",
             "identifiers": {
-                "itabus": "CFL_T"
+                "flixbus": "40de8753-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Borca di Cadore",
-            "country": "Italy",
+            "name": "Schwerin",
+            "country": "DE",
             "identifiers": {
-                "itabus": "BDC_T"
+                "flixbus": "40dce8bd-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Gallipoli",
-            "country": "Italy",
+            "name": "Tren\u010d\u00edn",
+            "country": "SK",
             "identifiers": {
-                "itabus": "GLL_T"
+                "flixbus": "1dfd1c9a-4198-4096-ae09-c70093b3f3b4"
             }
         },
         {
-            "name": "Zagabria",
-            "country": "Italy",
+            "name": "Malm\u00f6",
+            "country": "SE",
             "identifiers": {
-                "itabus": "ZAG_T"
+                "flixbus": "40dda2b5-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Porto Cesareo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PCS_T"
-            }
-        },
-        {
-            "name": "Mantova",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MAN_T"
-            }
-        },
-        {
-            "name": "Salerno",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SAL_T"
-            }
-        },
-        {
-            "name": "L'Aquila",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LAQ_T"
-            }
-        },
-        {
-            "name": "Frosinone",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FRO_T"
-            }
-        },
-        {
-            "name": "Ferrandina",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FRD_T"
-            }
-        },
-        {
-            "name": "Prato",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PRA_T"
-            }
-        },
-        {
-            "name": "Fasano",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FAS_T"
-            }
-        },
-        {
-            "name": "Reggio Emilia",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "REG_T"
-            }
-        },
-        {
-            "name": "Catania Aeroporto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CAT2_T"
-            }
-        },
-        {
-            "name": "Catania",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CAT_T"
-            }
-        },
-        {
-            "name": "Peschici",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PCI_T"
-            }
-        },
-        {
-            "name": "Trieste",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TRI_T"
-            }
-        },
-        {
-            "name": "Milano",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MIL_T"
-            }
-        },
-        {
-            "name": "Bergamo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BGG_T"
-            }
-        },
-        {
-            "name": "Bibione",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BIB_T"
-            }
-        },
-        {
-            "name": "Crotone",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CRO_T"
-            }
-        },
-        {
-            "name": "Verona",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "VER_T"
-            }
-        },
-        {
-            "name": "Ostuni",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "OST_T"
-            }
-        },
-        {
-            "name": "Longarone",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LGN_T"
-            }
-        },
-        {
-            "name": "Brindisi",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BRI_T"
-            }
-        },
-        {
-            "name": "Potenza",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "POT_T"
-            }
-        },
-        {
-            "name": "Turi",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TUR_T"
-            }
-        },
-        {
-            "name": "Catanzaro",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CTZ_T"
-            }
-        },
-        {
-            "name": "Orio al Serio Aeroporto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BGY_T"
-            }
-        },
-        {
-            "name": "Polignano a Mare",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "POL_T"
-            }
-        },
-        {
-            "name": "Cir\u00f2 Marina",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CIR_T"
-            }
-        },
-        {
-            "name": "Taormina",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "GIA_T"
-            }
-        },
-        {
-            "name": "San Salvo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SAN_T"
-            }
-        },
-        {
-            "name": "Tai di Cadore",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TDC_T"
-            }
-        },
-        {
-            "name": "Vieste",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "VIE_T"
-            }
-        },
-        {
-            "name": "Maglie",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MGL_T"
-            }
-        },
-        {
-            "name": "Mola di Bari",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MOL_T"
-            }
-        },
-        {
-            "name": "Pietrapaola",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PIE_T"
-            }
-        },
-        {
-            "name": "Strongoli",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "STR_T"
-            }
-        },
-        {
-            "name": "Bologna",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BOL_T"
-            }
-        },
-        {
-            "name": "Andria",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "AND_T"
-            }
-        },
-        {
-            "name": "Siena",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SIE_T"
-            }
-        },
-        {
-            "name": "Teramo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TER_T"
-            }
-        },
-        {
-            "name": "Jesolo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "JES_T"
-            }
-        },
-        {
-            "name": "Bari",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BAR_T"
-            }
-        },
-        {
-            "name": "Milazzo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MZZ_T"
-            }
-        },
-        {
-            "name": "Modugno",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MDG_T"
-            }
-        },
-        {
-            "name": "Rossano",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "RON_T"
-            }
-        },
-        {
-            "name": "Caorle",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CAO_T"
-            }
-        },
-        {
-            "name": "Messina",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MES_T"
-            }
-        },
-        {
-            "name": "Parma",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PAR_T"
-            }
-        },
-        {
-            "name": "Lauria",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LAU_T"
-            }
-        },
-        {
-            "name": "Rosarno",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "ROS_T"
-            }
-        },
-        {
-            "name": "Nard\u00f2",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "NRD_T"
-            }
-        },
-        {
-            "name": "Taranto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TAR_T"
-            }
-        },
-        {
-            "name": "Locorotondo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LOC_T"
-            }
-        },
-        {
-            "name": "Roma",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "ROM_T"
-            }
-        },
-        {
-            "name": "Cosenza",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "COS_T"
-            }
-        },
-        {
-            "name": "Altamura",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "ALT_T"
-            }
-        },
-        {
-            "name": "San Vito di Cadore",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SVC_T"
-            }
-        },
-        {
-            "name": "Ceglie Messapica",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CEG_T"
-            }
-        },
-        {
-            "name": "Venezia",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "VEN_T"
-            }
-        },
-        {
-            "name": "Venezia Aeroporto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "VEN3_T"
-            }
-        },
-        {
-            "name": "Brescia",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "BRE_T"
-            }
-        },
-        {
-            "name": "Metaponto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MET_T"
-            }
-        },
-        {
-            "name": "Matera",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MAT_T"
-            }
-        },
-        {
-            "name": "Siracusa",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SIR_T"
-            }
-        },
-        {
-            "name": "Melissa",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MEL_T"
-            }
-        },
-        {
-            "name": "Monopoli",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MON_T"
-            }
-        },
-        {
-            "name": "Otranto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "OTR_T"
-            }
-        },
-        {
-            "name": "Cariati",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CAR_T"
-            }
-        },
-        {
-            "name": "Crosia",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MRT_T"
-            }
-        },
-        {
-            "name": "San Severo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SAS_T"
-            }
-        },
-        {
-            "name": "Treviso Aeroporto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TRS_T"
-            }
-        },
-        {
-            "name": "Treviso",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TRV_T"
-            }
-        },
-        {
-            "name": "Manduria",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MDR_T"
-            }
-        },
-        {
-            "name": "Lamezia Terme",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LAM_T"
-            }
-        },
-        {
-            "name": "Caserta",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CAS_T"
-            }
-        },
-        {
-            "name": "Putignano",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PUT_T"
-            }
-        },
-        {
-            "name": "Foggia",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FOG_T"
-            }
-        },
-        {
-            "name": "Palermo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PAM_T"
-            }
-        },
-        {
-            "name": "Cortina d'Ampezzo",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CRT_T"
-            }
-        },
-        {
-            "name": "Rodi Garganico",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "ROD_T"
-            }
-        },
-        {
-            "name": "Palmi",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PAL_T"
-            }
-        },
-        {
-            "name": "San Benedetto del Tronto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SBN_T"
-            }
-        },
-        {
-            "name": "Sibari",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SIB_T"
-            }
-        },
-        {
-            "name": "Lignano Sabbiadoro",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LIG_T"
-            }
-        },
-        {
-            "name": "Pescara",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PEC_T"
-            }
-        },
-        {
-            "name": "Crucoli",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CRU_T"
-            }
-        },
-        {
-            "name": "Avellino",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "AVE_T"
-            }
-        },
-        {
-            "name": "Francavilla Fontana",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FFT_T"
-            }
-        },
-        {
-            "name": "Ferrara",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FER_T"
-            }
-        },
-        {
-            "name": "Martina Franca",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MFC_T"
-            }
-        },
-        {
-            "name": "Avetrana",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "AVT_T"
-            }
-        },
-        {
-            "name": "Villa San Giovanni",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "VIL_T"
-            }
-        },
-        {
-            "name": "Catanzaro Lido",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CTZ2"
-            }
-        },
-        {
-            "name": "Pordenone",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PRD_T"
-            }
-        },
-        {
-            "name": "Eraclea",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "ERA_T"
-            }
-        },
-        {
-            "name": "Modena",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MDN_T"
-            }
-        },
-        {
-            "name": "Fiumicino Aeroporto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FCO_T"
-            }
-        },
-        {
-            "name": "Giulianova",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "GLN_T"
-            }
-        },
-        {
-            "name": "Lubiana",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LUS_T"
-            }
-        },
-        {
-            "name": "Lecce",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "LEC_T"
-            }
-        },
-        {
-            "name": "San Giovanni in Fiore",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "SGF_T"
-            }
-        },
-        {
-            "name": "Torino",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "TOR_T"
-            }
-        },
-        {
-            "name": "Frascineto",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "FRA_T"
-            }
-        },
-        {
-            "name": "Casamassima",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "CSM_T"
-            }
-        },
-        {
-            "name": "Rende (Cosenza Nord)",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "COS3"
-            }
-        },
-        {
-            "name": "Piacenza",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "PIA_T"
-            }
-        },
-        {
-            "name": "Mandatoriccio",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MND_T"
-            }
-        },
-        {
-            "name": "Molfetta",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "MOF_T"
-            }
-        },
-        {
-            "name": "Napoli",
-            "country": "Italy",
-            "identifiers": {
-                "itabus": "NAP_T",
-                "flixbus": "40e096c1-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Massa",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1b6de-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Genoa",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40df4521-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Turin",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40deee02-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Caserta",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1c491-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Rome",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40de90ff-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Siena",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e10ab9-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Siena",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e10ab9-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Bologna",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40df3653-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Parma",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e109f0-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Florence",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40de71c6-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Geneva",
-            "country": "CH",
-            "identifiers": {
-                "flixbus": "40df585b-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Paris",
+            "name": "Chalon-sur-Sa\u00f4ne",
             "country": "FR",
             "identifiers": {
-                "flixbus": "40de8964-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e0030a-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Aosta",
-            "country": "IT",
+            "name": "Berlin Airport",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "40e2b92f-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "42d5ccaf-d0dc-4381-bd1f-9b5b38862cca"
             }
         },
         {
-            "name": "Lecce",
-            "country": "IT",
+            "name": "Olomouc",
+            "country": "CZ",
             "identifiers": {
-                "flixbus": "40e09d39-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e0c29f-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Brindisi",
-            "country": "IT",
+            "name": "Mielno",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e09c84-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "aef9c43c-dc3a-404f-a3f9-ef8e88d36d91"
             }
         },
         {
-            "name": "Monopoli",
-            "country": "IT",
+            "name": "Bukowina Tatrza\u0144ska",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e2a6b4-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "e10be747-8621-49dd-b44a-53d49dd5d9fc"
             }
         },
         {
-            "name": "Bari",
-            "country": "IT",
+            "name": "Nysa",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40df3bba-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "cd7b5887-b1fe-4f8f-ae68-78e7800b16f2"
             }
         },
         {
-            "name": "Rome Fiumicino Airport",
-            "country": "IT",
+            "name": "Warsaw Airport",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "105d8c7f-86c9-430f-85ea-5b502d2c21bc"
+                "flixbus": "506b1878-8826-46b4-ba80-2698e091116d"
             }
         },
         {
-            "name": "Maglie",
-            "country": "IT",
+            "name": "Budapest",
+            "country": "HU",
             "identifiers": {
-                "flixbus": "17313264-e40f-402b-a3ed-cdad20c5ae37"
+                "flixbus": "40de6527-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Naples Airport",
-            "country": "IT",
+            "name": "Prague",
+            "country": "CZ",
             "identifiers": {
-                "flixbus": "a8015e36-038b-4ec8-a5ab-915a38671197"
+                "flixbus": "40de1ad1-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "L'Aquila",
-            "country": "IT",
+            "name": "\u017ddiar",
+            "country": "SK",
             "identifiers": {
-                "flixbus": "40e28236-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "1c87aa20-f09b-41cb-952b-f3d0af21e3b5"
             }
         },
         {
-            "name": "Teramo",
-            "country": "IT",
+            "name": "Munich International Airport",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "40e28323-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40dc4639-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "San Benedetto del Tronto",
-            "country": "IT",
+            "name": "Katowice Airport",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e27bc9-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "ea25102f-fe02-4b98-b81d-a08f31f79558"
             }
         },
         {
-            "name": "Civitanova Marche",
-            "country": "IT",
+            "name": "Helsinki",
+            "country": "FI",
             "identifiers": {
-                "flixbus": "40e27cb6-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "f074ccfa-b588-45d2-a838-cf2a30cf3597"
             }
         },
         {
-            "name": "Ancona",
-            "country": "IT",
+            "name": "Dresden",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "40df3877-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40db219f-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "San Benedetto del Tronto",
-            "country": "IT",
+            "name": "Split",
+            "country": "HR",
             "identifiers": {
-                "flixbus": "40e27bc9-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e128e9-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Avezzano",
-            "country": "IT",
+            "name": "Ukmerge",
+            "country": "LT",
             "identifiers": {
-                "flixbus": "05252a3f-67a9-4ef6-a1e5-31bd60f6d18f"
+                "flixbus": "aafc1918-95cd-4b00-8066-f40e18ebf043"
             }
         },
         {
-            "name": "Sora",
-            "country": "IT",
+            "name": "Ostrava",
+            "country": "CZ",
             "identifiers": {
-                "flixbus": "c9b922d8-5d62-4947-8eb4-d52aabe7f83c"
+                "flixbus": "40e0eb79-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Cassino",
-            "country": "IT",
+            "name": "Hamburg",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "40e32374-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40d91e53-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Porto d'Ascoli",
-            "country": "IT",
+            "name": "Koszalin",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e2b6f1-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e1a0af-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Lyon",
+            "name": "Bia\u0142ystok",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "b5b11801-0928-43c1-af2e-2f01acbc0eca"
+            }
+        },
+        {
+            "name": "Kolobrzeg",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40e1a593-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Belfort",
             "country": "FR",
             "identifiers": {
-                "flixbus": "40df89c1-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40dff5b5-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Matera",
-            "country": "IT",
+            "name": "Gda\u0144sk",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e2805d-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Altamura",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e2a8d4-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Potenza",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e27f75-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Savona",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e2b7ad-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Pompeii",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e2b636-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Salerno",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1c543-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Agropoli",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "886b2b42-f0e8-4cfe-8a3e-dd744b840ee8"
-            }
-        },
-        {
-            "name": "Foggia",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40df3a5e-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "San Severo",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e2738f-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Termoli",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "84c4833b-87d6-47c9-b903-15096c8609b8"
-            }
-        },
-        {
-            "name": "Pescara",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40df3966-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Bergamo Orio al Serio Airport",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "e66b26bd-758d-4c59-ad1f-eddf72800f3e"
-            }
-        },
-        {
-            "name": "Brescia",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40df2b0e-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Verona",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40dea1ff-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Modena",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e09e0a-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Frosinone",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e2c546-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Caserta",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1c491-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Bergamo",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e098df-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Avellino",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e304aa-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Benevento",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e3057a-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Pisa Airport",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "bb83c8ab-c0ec-404b-bb4a-4781711186b4"
-            }
-        },
-        {
-            "name": "Pisa",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e09bc2-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Viareggio",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1b7a0-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "La Spezia",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e1b626-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Milan Malpensa Airport",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e324e7-8646-11e6-9066-549f350fcb0c"
-            }
-        },
-        {
-            "name": "Sorrento",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "6187d07a-8421-4536-97da-c3f138fd36f8"
-            }
-        },
-        {
-            "name": "Vico Equense",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "83c31890-d25f-49fb-84f6-883fc0939301"
-            }
-        },
-        {
-            "name": "Vico Equense",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "83c31890-d25f-49fb-84f6-883fc0939301"
-            }
-        },
-        {
-            "name": "Castellammare di Stabia",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "eccd9d3d-03e3-4c78-9150-cce823ce8a27"
-            }
-        },
-        {
-            "name": "Sorrento",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "6187d07a-8421-4536-97da-c3f138fd36f8"
-            }
-        },
-        {
-            "name": "Chieti",
-            "country": "IT",
-            "identifiers": {
-                "flixbus": "40e326f5-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40de6982-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
@@ -1274,45 +244,129 @@
             }
         },
         {
-            "name": "Trieste",
-            "country": "IT",
+            "name": "Tatransk\u00e1 Lomnica",
+            "country": "SK",
             "identifiers": {
-                "flixbus": "40de9f2f-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "abeabadf-85ef-4454-8b01-d2dfd2e0da5e"
             }
         },
         {
-            "name": "Trieste Airport",
-            "country": "IT",
+            "name": "Jan\u00f3w Lubelski",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "74fc3496-db2d-4884-89f1-ace2d36469f1"
+                "flixbus": "d5371de1-b76c-46b9-8c90-f0ec3d2a9555"
             }
         },
         {
-            "name": "Venice Marco Polo Airport",
-            "country": "IT",
+            "name": "W\u0142oc\u0142awek",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "b2a6981d-00be-40c6-9141-57e4977b409f"
+                "flixbus": "404506f4-75e4-436f-a0c2-c9acf32adff2"
             }
         },
         {
-            "name": "Venice",
-            "country": "IT",
+            "name": "Trogir",
+            "country": "HR",
             "identifiers": {
-                "flixbus": "40dea03b-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e1249f-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Padua",
-            "country": "IT",
+            "name": "Helsinki",
+            "country": "FI",
             "identifiers": {
-                "flixbus": "40de8868-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "f074ccfa-b588-45d2-a838-cf2a30cf3597"
             }
         },
         {
-            "name": "Ferrara",
-            "country": "IT",
+            "name": "Wroc\u0142aw",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e09774-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40de575f-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Maribor",
+            "country": "SI",
+            "identifiers": {
+                "flixbus": "40de835d-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Panevezys",
+            "country": "LT",
+            "identifiers": {
+                "flixbus": "2b18b246-852c-4de1-af2d-cdfc1852bb07"
+            }
+        },
+        {
+            "name": "Hradec Kr\u00e1lov\u00e9",
+            "country": "CZ",
+            "identifiers": {
+                "flixbus": "72501f35-c6c5-4063-a362-c7d5a6052d6f"
+            }
+        },
+        {
+            "name": "Szczecinek",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "d20d6d6d-1f13-4150-8c26-32aab000e4f5"
+            }
+        },
+        {
+            "name": "Prague Airport",
+            "country": "CZ",
+            "identifiers": {
+                "flixbus": "ffb87aeb-111d-40fd-8f06-b6838da8762e"
+            }
+        },
+        {
+            "name": "Mulhouse",
+            "country": "FR",
+            "identifiers": {
+                "flixbus": "40dff026-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Zvolen",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "f0530816-d93f-4b1a-9838-67e4ffe45513"
+            }
+        },
+        {
+            "name": "Lublin",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "d7687a0f-488f-49c7-821e-5a26640c5f86"
+            }
+        },
+        {
+            "name": "Gliwice",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40e19f49-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Vienna Airport",
+            "country": "AT",
+            "identifiers": {
+                "flixbus": "40df34e5-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Grudzi\u0105dz",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "5ba6dff1-c94e-407e-80ba-205bee79bed1"
+            }
+        },
+        {
+            "name": "Copenhagen",
+            "country": "DK",
+            "identifiers": {
+                "flixbus": "40de7db1-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
@@ -1323,115 +377,178 @@
             }
         },
         {
-            "name": "Sala Consilina",
-            "country": "IT",
+            "name": "August\u00f3w",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "874db01a-d53e-4167-8705-1a7f5173eed3"
+                "flixbus": "934b1bcb-c8e8-4230-874e-fb2e84a8aaec"
             }
         },
         {
-            "name": "Mormanno",
-            "country": "IT",
+            "name": "Star\u00fd Smokovec",
+            "country": "SK",
             "identifiers": {
-                "flixbus": "072ba27e-e4c4-4114-b828-90e73884d33f"
+                "flixbus": "06113a36-4002-4dd0-9f5c-47647b37c6be"
             }
         },
         {
-            "name": "Castrovillari-Frascineto",
-            "country": "IT",
+            "name": "Gdynia",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "1aa6a270-dd07-4a77-ab9b-9d094db6afbf"
+                "flixbus": "40e19d09-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Sibari",
-            "country": "IT",
+            "name": "Katowice",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "d1152ec7-2550-45c6-85c8-662f1fb9dd82"
+                "flixbus": "40de7b94-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Bivio Cantinella",
+            "name": "Trieste",
             "country": "IT",
             "identifiers": {
-                "flixbus": "42236846-f93e-46f7-8828-b59b2bd6c3b3"
+                "flixbus": "40de9f2f-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Corigliano",
-            "country": "IT",
+            "name": "Rzesz\u00f3w",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "d2b4a038-9f28-415e-b0ed-8498ba704c9a"
+                "flixbus": "40e279fe-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Schiavonea",
-            "country": "IT",
+            "name": "Riga",
+            "country": "LV",
             "identifiers": {
-                "flixbus": "59623ce3-2888-430f-8a99-149df9a986f8"
+                "flixbus": "20f5fe96-be0b-4d72-bd03-2affa653ca58"
             }
         },
         {
-            "name": "Contrada Frasso",
-            "country": "IT",
+            "name": "\u0160ibenik",
+            "country": "HR",
             "identifiers": {
-                "flixbus": "be8e8787-ef17-4baa-ba68-0500e25235e2"
+                "flixbus": "40e12271-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Mirto Crosia",
-            "country": "IT",
+            "name": "N\u00e1chod",
+            "country": "CZ",
             "identifiers": {
-                "flixbus": "a36add60-09e2-472b-9c2f-2ba85002359a"
+                "flixbus": "a5f0a839-7387-4be9-b076-658017135c6a"
             }
         },
         {
-            "name": "Calopezzati",
-            "country": "IT",
+            "name": "Jastrowie",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "0069f9c0-27d4-481c-a63e-e04218728ce6"
+                "flixbus": "e9c7e306-7c16-4a7c-a0b2-28a843ba42a2"
             }
         },
         {
-            "name": "Cariati",
-            "country": "IT",
+            "name": "Helsinki-Vantaa Airport",
+            "country": "FI",
             "identifiers": {
-                "flixbus": "ccb9e6c2-63d1-4057-b5d5-21ee61e9ebf2"
+                "flixbus": "1ef839e3-ce79-494f-94e0-813a28d5ce79"
             }
         },
         {
-            "name": "Torretta Crucoli",
-            "country": "IT",
+            "name": "Duszniki-Zdr\u00f3j",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "e57fc1bd-f090-4cac-97e6-23737facc77c"
+                "flixbus": "fa030c45-d0b0-451b-9a98-2602269dde54"
             }
         },
         {
-            "name": "Cir\u00f2 Marina",
-            "country": "IT",
+            "name": "Che\u0142m",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "605fcbbe-2354-472b-a598-f2fd98f0f760"
+                "flixbus": "ce2d1a6d-cd91-4385-8da8-365bfe055509"
             }
         },
         {
-            "name": "Torre Melissa",
-            "country": "IT",
+            "name": "Toru\u0144",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "9a14178d-e430-4566-a76f-db1946b52a41"
+                "flixbus": "40e19e98-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Strongoli Marina",
-            "country": "IT",
+            "name": "Berlin",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "d73a6037-166c-45b6-9ac6-c357efee3abb"
+                "flixbus": "40d8f682-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Crotone",
-            "country": "IT",
+            "name": "Bansk\u00e1 Bystrica",
+            "country": "SK",
             "identifiers": {
-                "flixbus": "114c5c6d-ba4e-43b8-9cbd-aa499d004bc7"
+                "flixbus": "2a13acb7-3117-47e8-a579-61756746104c"
+            }
+        },
+        {
+            "name": "My\u015blenice",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "de362130-8100-4205-8e27-6e61dbfaf240"
+            }
+        },
+        {
+            "name": "Colmar",
+            "country": "FR",
+            "identifiers": {
+                "flixbus": "40df6681-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Poprad",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "40e0f91c-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "August\u00f3w",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "934b1bcb-c8e8-4230-874e-fb2e84a8aaec"
+            }
+        },
+        {
+            "name": "Nyk\u00f8bing Falster",
+            "country": "DK",
+            "identifiers": {
+                "flixbus": "5385b275-d84a-4c30-a3ba-a65ad339b88e"
+            }
+        },
+        {
+            "name": "Tarn\u00f3w",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "66e1315a-d762-4ee8-9e31-e903d79efec9"
+            }
+        },
+        {
+            "name": "Vilnius",
+            "country": "LT",
+            "identifiers": {
+                "flixbus": "4f05a96a-0043-4215-bcac-8c35c081056e"
+            }
+        },
+        {
+            "name": "Vodice",
+            "country": "HR",
+            "identifiers": {
+                "flixbus": "40e28937-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "P\u00e4rnu",
+            "country": "EE",
+            "identifiers": {
+                "flixbus": "99c4ff28-3ecb-11ea-8017-02437075395e"
             }
         },
         {
@@ -1442,31 +559,151 @@
             }
         },
         {
-            "name": "Pore\u010d",
+            "name": "Z\u0142oty Stok",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "2c0d444e-ac11-4f8e-98bc-2cbf4dde49fc"
+            }
+        },
+        {
+            "name": "Pi\u0142a",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "027a3077-166c-4198-9ff3-30634a4bbf91"
+            }
+        },
+        {
+            "name": "Kielce",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "f178aeb8-413b-4f71-9d23-75ad27db4926"
+            }
+        },
+        {
+            "name": "krakow",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40de7eb5-8646-11e6-9066-549f350fcb0c",
+                "wizzair": "KRK"
+            }
+        },
+        {
+            "name": "Kudowa-Zdr\u00f3j",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "809ac4c1-1c31-4a05-a2e1-c0f6a9734c1c"
+            }
+        },
+        {
+            "name": "Ljubljana",
+            "country": "SI",
+            "identifiers": {
+                "flixbus": "40de8044-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Ru\u017eomberok",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "40e0f6d3-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Ciechocinek",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "6a17341c-70fd-4f2e-8f21-ed68615a7b61"
+            }
+        },
+        {
+            "name": "Alytus",
+            "country": "LT",
+            "identifiers": {
+                "flixbus": "99c502b9-3ecb-11ea-8017-02437075395e"
+            }
+        },
+        {
+            "name": "Pre\u0161ov",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "40e0fc2a-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Strasbourg",
+            "country": "FR",
+            "identifiers": {
+                "flixbus": "40d90f52-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Radom",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "afe77682-5acf-4237-9d78-5fb0f2bf6039"
+            }
+        },
+        {
+            "name": "R\u00f8dbyhavn",
+            "country": "DK",
+            "identifiers": {
+                "flixbus": "40deec39-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Lviv",
+            "country": "UA",
+            "identifiers": {
+                "flixbus": "40e2d079-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Gda\u0144sk Airport",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "a760ba9e-7ba8-404b-8004-f6f687e05557"
+            }
+        },
+        {
+            "name": "Brzesko",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "77d325ab-701b-440d-ae62-6e6f3205b098"
+            }
+        },
+        {
+            "name": "Polanica-Zdr\u00f3j",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "6452d375-8358-4f5a-8f76-9866682be911"
+            }
+        },
+        {
+            "name": "Biograd",
             "country": "HR",
             "identifiers": {
-                "flixbus": "40e2922f-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40e10dc6-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Portoro\u017e",
-            "country": "SI",
+            "name": "Strzelce Opolskie",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e290c1-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "2d14a090-d626-43b5-a11e-8795f9ca5031"
             }
         },
         {
-            "name": "Koper",
-            "country": "SI",
+            "name": "Skarzysko-Kamienna",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "40e28d27-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "b0cf9e2e-bdf2-426b-8699-f03e41def212"
             }
         },
         {
-            "name": "Udine",
-            "country": "IT",
+            "name": "Plze\u0148",
+            "country": "CZ",
             "identifiers": {
-                "flixbus": "40e2a317-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40de8a5a-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
@@ -1477,38 +714,185 @@
             }
         },
         {
-            "name": "Nocera Inferiore",
-            "country": "IT",
+            "name": "Munich",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "bf0df687-4ef6-4ed2-9e96-d1d9408c843e"
+                "flixbus": "40d901a5-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Battipaglia",
-            "country": "IT",
+            "name": "Pozna\u0144",
+            "country": "PL",
             "identifiers": {
-                "flixbus": "85a78e4f-d16e-4d77-80ab-6831e50273d8"
+                "flixbus": "40de8b67-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Saronno",
-            "country": "IT",
+            "name": "Tallinn",
+            "country": "EE",
             "identifiers": {
-                "flixbus": "8f52e5df-4382-4fb8-b902-9e8aeb559922"
+                "flixbus": "99c4fec7-3ecb-11ea-8017-02437075395e"
             }
         },
         {
-            "name": "Prato",
-            "country": "IT",
+            "name": "Karlsruhe",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "40e1afd2-8646-11e6-9066-549f350fcb0c"
+                "flixbus": "40d912c2-8646-11e6-9066-549f350fcb0c"
             }
         },
         {
-            "name": "Como",
-            "country": "IT",
+            "name": "L\u00fcbeck",
+            "country": "DE",
             "identifiers": {
-                "flixbus": "dd129ead-912c-4052-8e6a-cd441c14d0b6"
+                "flixbus": "40dc0389-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "\u017dilina",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "40e0f550-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Doln\u00fd Kub\u00edn",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "3f27d984-12b2-471e-8e0b-871df0ffb452"
+            }
+        },
+        {
+            "name": "\u0141\u00f3d\u017a",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40e19dd6-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Vilnius",
+            "country": "LT",
+            "identifiers": {
+                "flixbus": "4f05a96a-0043-4215-bcac-8c35c081056e"
+            }
+        },
+        {
+            "name": "Ko\u0161ice",
+            "country": "SK",
+            "identifiers": {
+                "flixbus": "40e0fdb7-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Krak\u00f3w Airport",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "12fb32b4-db51-4e59-9cae-7dc9d629934b"
+            }
+        },
+        {
+            "name": "Siofok",
+            "country": "HU",
+            "identifiers": {
+                "flixbus": "d44fc3a8-8f4b-4a87-95f4-c6922b0f83f8"
+            }
+        },
+        {
+            "name": "Nowy Targ",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "cc76d6ed-56b7-4af1-8cb1-aed5ce634193"
+            }
+        },
+        {
+            "name": "Zadar",
+            "country": "HR",
+            "identifiers": {
+                "flixbus": "40e12563-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Rzesz\u00f3w Jasionka Airport",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "53314dd6-7fd0-45b3-9973-901944d22739"
+            }
+        },
+        {
+            "name": "K\u0142odzko",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "7303a497-542c-402b-810f-036c821fa192"
+            }
+        },
+        {
+            "name": "Rabka-Zdr\u00f3j",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "64f17998-2e8d-4473-be98-c78991f3a083"
+            }
+        },
+        {
+            "name": "Lyon",
+            "country": "FR",
+            "identifiers": {
+                "flixbus": "40df89c1-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Leszno",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "4e74054a-db29-4b6a-80e1-cb48d473fea8"
+            }
+        },
+        {
+            "name": "Budapest Airport",
+            "country": "HU",
+            "identifiers": {
+                "flixbus": "07a78aaa-755f-4071-bb35-739b1fc741e6"
+            }
+        },
+        {
+            "name": "Vilnius",
+            "country": "LT",
+            "identifiers": {
+                "flixbus": "4f05a96a-0043-4215-bcac-8c35c081056e"
+            }
+        },
+        {
+            "name": "Brno",
+            "country": "CZ",
+            "identifiers": {
+                "flixbus": "40e2c245-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Ustronie Morskie",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "612d405d-b693-433e-aef9-65bd7ac928b3"
+            }
+        },
+        {
+            "name": "Bydgoszcz",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40de6094-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Cz\u0119stochowa",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "40e2cfb8-8646-11e6-9066-549f350fcb0c"
+            }
+        },
+        {
+            "name": "Bia\u0142ka Tatrza\u0144ska",
+            "country": "PL",
+            "identifiers": {
+                "flixbus": "41945757-ef23-418a-84f8-671d6f7fd02c"
             }
         }
     ]
