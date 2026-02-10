@@ -1,7 +1,7 @@
 # Malatìa
-![Interface](https://github.com/gcrbr/malatia/raw/main/screenshots/timetable.png)
+![Interface](https://raw.githubusercontent.com/gcrbr/malatia/main/screenshots/timetable.png)
 
-![Map](https://github.com/gcrbr/malatia/raw/main/screenshots/map.png)
+![Map](https://raw.githubusercontent.com/gcrbr/malatia/main/screenshots/map.png)
 
 Tool to disappear at low cost and under mysterious circumstances.
 
