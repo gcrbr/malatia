@@ -1,21 +1,20 @@
 from backend.discovery import discovery
-from backend.discovery import trip
+from backend.discovery.trip import Trip
 import dateutil.parser
-import utils
 
-EXTERNAL_OFFSET = False
-ENABLED = True
 class Main(discovery.Discovery):
+    EXTERNAL_OFFSET = False
+    ENABLED = True
+
     def __init__(self):
         super().__init__(self.config.get_departure_city().get('identifiers').get('ryanair'))
 
-    def get_date(self, offset=0):
+    def get_date(self, offset: int=0):
         return super().get_date('%Y-%m-%d', offset)
 
-    def search_trips(self, offset=0):
+    def search_trips(self, offset: int=0):
         trips = []
-        try:
-            search = self.session.get('https://www.ryanair.com/api/farfnd/v4/oneWayFares',
+        search = self.session.get('https://www.ryanair.com/api/farfnd/v4/oneWayFares',
             params={
                 'departureAirportIataCode': self.departure,
                 'outboundDepartureDateFrom': self.get_date(0),
@@ -26,24 +25,19 @@ class Main(discovery.Discovery):
                 'outboundDepartureTimeTo': '23:59'
             }).json()
 
-            if not 'fares' in search:
-                return []
-
-            for k in search['fares']:
-                flight = k['outbound']
-                if (price := flight['price']['value']) <= self.config.config.get('configuration').get('price_cap') and price > 0:
-                    trips.append(
-                        trip.Trip(
-                            date=dateutil.parser.parse(flight['departureDate']),
-                            departure=self.departure,
-                            arrival=flight['arrivalAirport']['city']['name'],
-                            carrier=self.base_name(__name__),
-                            duration=(dateutil.parser.parse(flight['arrivalDate'])-dateutil.parser.parse(flight['departureDate'])).seconds/60,
-                            price=price,
-                            arrival_country=flight['arrivalAirport']['countryName']
-                        )
+        for k in search.get('fares', []):
+            flight = k.get('outbound', {})
+            price = flight.get('price', {}).get('value', 0)
+            if price > 0 and price <= self.config.get('configuration', {}).get('price_cap', 20):
+                trips.append(
+                    Trip(
+                        date=dateutil.parser.parse(flight.get('departureDate', '')),
+                        departure=self.departure,
+                        arrival=flight.get('arrivalAirport', {}).get('city', {}).get('name', ''),
+                        carrier=self.get_basename(),
+                        duration=(dateutil.parser.parse(flight.get('arrivalDate', '')) - dateutil.parser.parse(flight.get('departureDate', ''))).seconds/60,
+                        price=price,
+                        arrival_country=flight.get('arrivalAirport', {}).get('countryName', '')
                     )
-        except Exception as e: 
-            #utils.err(f'[{__name__}]: {e}')
-            pass
+                )
         return trips

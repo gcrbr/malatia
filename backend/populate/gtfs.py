@@ -4,15 +4,15 @@ import io
 
 class GTFS:
     def __init__(self):
-        self.data = dict()
+        self.data = {}
     
-    def parse_csv(self, csv):
-        content = list()
+    def parse_csv(self, csv: str) -> list:
+        content = []
         csv = csv.splitlines()
         format = csv[0].split(',')
         for line in csv[1:]:
-            data = dict()
-            fields = list()
+            data = {}
+            fields = []
             
             to_push = str()
             quotes_pos = -1
@@ -39,16 +39,16 @@ class GTFS:
             content.append(data)
         return content
 
-    def import_from_buffer(self, buffer):
+    def import_from_buffer(self, buffer: bytes) -> None:
         zip = zipfile.ZipFile(buffer)
         for file in zip.namelist():
             name = file[:-4]
             content = zip.read(file).decode('utf-8')
             self.data[name] = self.parse_csv(content)
 
-    def import_from_url(self, url):
+    def import_from_url(self, url: str) -> None:
         raw = requests.get(url).content
         self.import_from_buffer(io.BytesIO(raw))
 
-    def get(self, key):
+    def get(self, key) -> None:
         return self.data[key]

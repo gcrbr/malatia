@@ -1,12 +1,9 @@
 import threading
-import colorama
 import argparse
-import utils
-import glob
 import json
 import os
-import math
 from backend.populate import model
+from utils import Console, Files
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser()
@@ -15,28 +12,29 @@ if __name__ == '__main__':
     parser.add_argument('-c', '--carriers', help='Manually select the carriers to research on, separated by a comma (es. "-c itabus,flixbus", default: all)')
 
     args = parser.parse_args()
+    chosen_carriers = args.carriers.lower().split(',') if args.carriers else []
 
-    utils.print_intro()
-    print(f'{colorama.Fore.YELLOW}This feature is still in the testing phase{colorama.Style.RESET_ALL}\n')
+    Console.print_intro()
+    Console.warning('This feature is still in the testing phase')
 
     if not args.departure:
-        utils.err('Missing departure city', True)
+        Console.err('Missing departure city', True)
     
-    carriers = list()
-    full_reach = list()
-    threads = list()
-    for c in utils.get_source_files('backend.populate.carriers'):
-        if args.carriers and not c in args.carriers.lower().split(','):
+    carriers = []
+    full_reach = []
+    threads = []
+    for c in Files.get_source_files('backend.populate.carriers'):
+        if args.carriers and not c in chosen_carriers:
             continue
 
         carrier = __import__('backend.populate.carriers.' + c, fromlist=[None])
         carrier_name = c.split('.')[-1]
 
-        print(f'{colorama.Fore.GREEN}(!) Searching destinations for \'{carrier_name}\'')
+        Console.info(f'Searching destinations for \'{carrier_name}\'')
 
         def add_place(carrier_name, place):
             global full_reach
-            print(f'{colorama.Fore.CYAN}(>) Found destination \'{place.name}\' on \'{carrier_name}\'{colorama.Style.RESET_ALL}')
+            Console.info(f'Found destination \'{place.name}\' on \'{carrier_name}\'')
             place.carrier = carrier_name
             full_reach.append(place)
 
@@ -44,8 +42,8 @@ if __name__ == '__main__':
             for place in reach:
                 try:
                     place = carrier_obj.normalize(place)
-                except:
-                    utils.err(f'Unable to normalize \'{place.name}\'')
+                except Exception as e:
+                    Console.err(f'Unable to normalize \'{place.name}\': {e}')
                 if not place:
                     continue
                 add_place(carrier_name, place)
@@ -56,14 +54,12 @@ if __name__ == '__main__':
             
             if carrier_obj.normalization:
                 ratio = 0.15
-                amt_threads = round(len(reach) * ratio)
-                reach_division = list()
-                for i in range(amt_threads):
-                    reach_division.append(list())
-                for i in range(len(reach)):
-                    reach_division[math.ceil(i * ratio) - 1].append(reach[i])
+                amt_threads = max(1, round(len(reach) * ratio))
+                reach_division = [[] for _ in range(amt_threads)]
+                for i, place in enumerate(reach):
+                    reach_division[i % amt_threads].append(place)
 
-                sub_threads = list()
+                sub_threads = []
                 for content in reach_division:
                     sub_threads.append((t := threading.Thread(target=normalize, args=(carrier_obj, carrier_name, content,))))
                     t.start()
@@ -79,29 +75,59 @@ if __name__ == '__main__':
     for t in threads:
         t.join()
 
-    file = open('config.json', 'w+')
-    fallback = json.dumps({
-            'configuration': {
-                'departure': args.departure,
-                'price_cap': 20,
-                'delay': 18000
-            },
-            'cities': full_reach,
-        }, indent=4, cls=model.RouteEncoder)
+    config_path = 'config.json'
+    config_data = {
+        'configuration': {
+            'departure': args.departure,
+            'price_cap': 20,
+            'delay': 18000
+        },
+        'cities': []
+    }
 
-    if not os.path.isfile('config.json'):
-        file.write(fallback)
-        file.close()
-    else:
+    if os.path.isfile(config_path):
         try:
-            data = file.read()
-            current = json.loads(data)
-            current['cities'] += full_reach
-            file.write(json.dumps(current, indent=4))
-            file.close()
-        except:
-            utils.err('Invalid JSON data in config.json')
-            file.write(fallback)
-            file.close()
+            with open(config_path, 'r') as f:
+                config_data = json.load(f)
+        except Exception as e:
+            Console.err(f'Failed to read {config_path}: {e}. Initializing new config.')
 
-    print(f'\n{colorama.Fore.YELLOW}(!) {len(full_reach)} destinations saved on config.json{colorama.Style.RESET_ALL}')
+    if 'cities' not in config_data:
+        config_data['cities'] = []
+
+    config_data['cities'] += full_reach
+
+    # grouping
+    grouped_cities = {}
+    for city in config_data['cities']:
+        if isinstance(city, model.Route):
+            name = city.name
+            country = city.country
+            new_ids = {city.carrier: city.id}
+        else:
+            name = city.get('name')
+            country = city.get('country')
+            new_ids = city.get('identifiers', {})
+
+        if not name:
+            continue
+
+        lookup_name = name.lower()
+        if lookup_name not in grouped_cities:
+            grouped_cities[lookup_name] = {
+                'name': name,
+                'country': country,
+                'identifiers': {}
+            }
+        
+        grouped_cities[lookup_name]['identifiers'].update(new_ids)
+        if country and not grouped_cities[lookup_name]['country']:
+            grouped_cities[lookup_name]['country'] = country
+    
+    config_data['cities'] = list(grouped_cities.values())
+
+    with open(config_path, 'w') as f:
+        json.dump(config_data, f, indent=4, cls=model.RouteEncoder)
+
+    Console.empty_line()
+    Console.info(f'{len(full_reach)} destinations saved on config.json')

@@ -1,6 +1,7 @@
 # Malatìa
-![Interface](https://i.imgur.com/FtfGzuL.png)
-![Map](https://i.imgur.com/H9J8M9f.png)
+![Interface](https://github.com/gcrbr/malatia/raw/main/screenshots/timetable.png)
+
+![Map](https://github.com/gcrbr/malatia/raw/main/screenshots/map.png)
 
 Tool to disappear at low cost and under mysterious circumstances.
 
@@ -8,7 +9,7 @@ This program searchs for low-cost trips on different carriers from a predetermin
 
 The results are viewable through an interface made with HTML, CSS and basic JavaScript. 
 
-This simply displays the contents of the `data.json` file in a readable table format.
+This simply displays the contents of the `data.json` file in a good-looking, readable table format.
 
 ## Supported carriers
 | Ryanair            | FlixBus            | Italo | Volotea | Wizz Air | Trenitalia | Itabus | easyJet |
@@ -18,9 +19,9 @@ This simply displays the contents of the `data.json` file in a readable table fo
 Note: Some carriers such as _Itabus_, _Trenitalia_ and _Italo_, are only available in Italy.
 
 ## Installation
-The required dependencies are `dateutil`, `requests` and `colorama`, you can install them with the following command:
+The required dependencies can be installed with the following command:
 ```bash
-pip install python-dateutil requests colorama
+pip install -r requirements.txt
 ```
 
 ## Usage
@@ -37,29 +38,24 @@ python main.py -i
 You can see the other options by using the parameter `-h` or `--help`.
 
 ## Population
-**NOTE**: This feature is still in the testing phase.
-
-Some carriers such as _Flixbus_ and _Itabus_ support automatic destination finding for your config file.
+This feature allows you to automatically populate the `config.json` file with a subset (or in some cases all) of the supported cities for each carrier, based on the determined departure city.
 
 ```bash
-python populate.py -d <departing city> [-c <carriers>]
+python populate.py -d <departure city> [-c <carriers>]
 ```
 
-The generated config file is "raw", it must be manually corrected for correct functioning.
+The generated config file is "raw". It is recommended to manually check it for correct functioning.
 
 ## Configuration
 Within the `config.json` file it is possible to change:
 - The starting city from which to search for trips
 - The supported cities
 - The price cap for the trips
-- The time delay between searches (in seconds)
+- The time delay between each re-search (in seconds)
 
 It is important to make sure that the city selected as the departure supports all the carriers used. 
 
 In short - you need to verify that for the given city, all fields within `identifiers` are properly filled.
-
-## Known Issues
-(...)
 
 ## Credits
 [Svein Kåre Gunnarson](https://dionaea.com/) for the [DotMatrix](https://www.dafont.com/dot-matrix.font) font

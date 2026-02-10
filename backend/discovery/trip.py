@@ -1,17 +1,9 @@
-from backend import geocoding
+from backend.geocoding import Place
+from backend import config
 import json
 
-GEOCODING = True
 class Trip:
-    date = None
-    carrier = None
-    departure = None
-    arrival = None
-    arrival_country = None
-    duration = None
-    price = None
-    
-    def __init__(self, date, departure, arrival, carrier, duration, price, arrival_country=None):
+    def __init__(self, date=None, departure=None, arrival=None, carrier=None, duration=None, price=None, arrival_country=None):
         self.date = date
         self.departure = departure
         self.arrival = arrival
@@ -19,6 +11,8 @@ class Trip:
         self.carrier = carrier
         self.duration = duration
         self.price = price
+        self.config = config.Config()
+        self.coordinates = None
 
     def __str__(self):
         return f'Trip({self.format_date()}, {self.format_time()}, {self.departure}, {self.arrival}, {self.arrival_country}, {self.carrier}, {self.format_duration()}, {self.format_price()})'
@@ -43,13 +37,16 @@ class Trip:
     def format_price(self):
         return '{:0,.2f}'.format(self.price)
     
+    def get_coordinates(self) -> tuple[float, float]:
+        return self.coordinates
+
     def to_dict(self):
         return {
             'date': self.format_date(),
             'time': self.format_time(),
             'departure': self.departure,
             'arrival': self.arrival,
-            'arrival_loc': geocoding.get_coordinates(f'{self.arrival}, {self.arrival_country}') if GEOCODING else (0, 0),
+            'arrival_loc': self.coordinates,
             'arrival_country': self.arrival_country,
             'carrier': self.carrier,
             'duration': self.format_duration(),

@@ -1,103 +1,97 @@
 from backend.discovery import trip
 from backend.http import handler
 from backend import config
+from backend.orchestrator import DiscoveryOrchestrator
 import threading
-import colorama
 import argparse
-import os.path
-import utils
-import glob
 import time
 import json
+from utils import Console, Files
+import http.server
 import sys
 
 data_file = 'data.json'
 
-def discovery_loop(carriers, delay, offset):
-    while True:
-        trips = []
-        for carrier in carriers:
-            if not carrier.ENABLED:
-                continue
-            start_time = time.time()
-            announce = f'{colorama.Fore.GREEN}(!) Searching for journeys on \'{carrier.__name__}\''
-            sys.stdout.write(announce + '\r')
-            _offset = 1
-            if carrier.EXTERNAL_OFFSET:
-                _offset = offset + 1
-            for d in range(_offset):
-                try:
-                    trips += carrier.Main().search_trips(d if carrier.EXTERNAL_OFFSET else (offset + 1))
-                except Exception as e:
-                    print(f'[Error][{carrier}] {e}')
-            sys.stdout.write(f'{announce} ({round(time.time() - start_time, 2)}s){colorama.Style.RESET_ALL}\n')
-        trips.sort(key=lambda t: t.price)
-        file = open(data_file, 'w')
-        file.write(json.dumps(trips, cls=trip.TripEncoder))
-        file.close()
-        print(f'\n{colorama.Fore.YELLOW}(!) {len(trips)} journeys saved on {data_file}{colorama.Style.RESET_ALL}')
-        time.sleep(delay)
-
 def run_http_server(port):
-    http.server.HTTPServer(('localhost', port), handler.mHandler).serve_forever()
+    try:
+        server = http.server.HTTPServer(('0.0.0.0', port), handler.mHandler)
+        server.serve_forever()
+    except Exception as e:
+        Console.err(f"HTTP Server error: {e}")
 
 if __name__ == '__main__':
     conf = config.Config()
 
     parser = argparse.ArgumentParser()
-
-    parser.add_argument('-i', '--interface', help='Runs an HTTP server for the graphical interface (default: disabled)', action='store_true')
+    parser.add_argument('-i', '--interface', help='Runs an HTTP server for the graphical interface', action='store_true')
     parser.add_argument('-p', '--port', help='Sets the port for the HTTP server (default: 8000)', default=8000)
-    parser.add_argument('-o', '--offset', help='Number of days after the current date for which journeys need to be searched (default: 3)', default=3)
-    parser.add_argument('-c', '--carriers', help='Manually select the carriers to research journeys on, separated by a comma (es. "-c itabus,flixbus", default: all)')
-    parser.add_argument('-io', '--interfaceonly', help='Only runs the interface, without looking for new journeys', action='store_true')
-    parser.add_argument('-ng', '--no-geocoding', help='Disable geocoding for faster search (the map will not work)', action='store_true')
+    parser.add_argument('-o', '--offset', help='Number of days after the current date to search (default: 3)', default=3)
+    parser.add_argument('-c', '--carriers', help='Manually select carriers (comma separated, e.g. "itabus,flixbus")')
+    parser.add_argument('-io', '--interfaceonly', help='Only runs the interface, without searching', action='store_true')
+    parser.add_argument('-ng', '--no-geocoding', help='Disable geocoding', action='store_true', default=False)
 
     args = parser.parse_args()
 
-    utils.print_intro()
+    Console.print_intro()
     
-    if type(args.offset) is not int and not args.offset.isnumeric():
-        utils.err('Invalid value provided for \'offset\'', True)
-    
-    if type(args.port) is not int and not args.port.isnumeric():
-       utils.err('Invalid value provided for \'port\'', True)
-    
-    args.port = int(args.port)
-    
-    args.offset = int(args.offset)
+    # Validation
+    try:
+        args.port = int(args.port)
+        args.offset = int(args.offset)
+    except ValueError:
+        Console.err('Invalid port or offset provided', True)
 
-    price_cap = conf.config.get('configuration').get('price_cap')
-    if not price_cap:
-        price_cap = 20
-        conf.config['configuration']['price_cap'] = price_cap
+    # Configuration loading
+    price_cap = conf.config.get('configuration', {}).get('price_cap', 20)
+    delay = conf.config.get('configuration', {}).get('delay', 18000)
+    geocoding_enabled = not args.no_geocoding
 
-    delay = conf.config.get('configuration').get('delay')
-    if not delay:
-        delay = 18000
-        conf.config['configuration']['delay'] = delay
-
+    # Carrier loading
     carriers = []
-    if args.carriers:
-        ref = [c.strip() for c in args.carriers.split(',')]
-    else:
-        ref = utils.get_source_files('backend.discovery.carriers')
+    ref = [c.strip() for c in args.carriers.split(',')] if args.carriers else Files.get_source_files('backend.discovery.carriers')
     
     for c in ref:
         try:
             carriers.append(__import__('backend.discovery.carriers.' + c, fromlist=[None]))
-        except ImportError:
-            utils.err('Could not find the carrier \'{c}\'', True)
+        except ImportError as e:
+            Console.err(f'Could not import carrier \'{c}\': {e}')
 
-    if args.no_geocoding:
-        trip.GEOCODING = False
-
+    # HTTP Server
     if args.interface or args.interfaceonly:
-        import http.server
-        threading.Thread(target=run_http_server, args=(args.port,)).start()
-        print(f'{colorama.Fore.YELLOW}HTTP Server running on localhost:{args.port}{colorama.Style.RESET_ALL}')
+        server_thread = threading.Thread(target=run_http_server, args=(args.port,), daemon=True)
+        server_thread.start()
+        Console.info(f'HTTP Server running on http://localhost:{args.port}')
     
-    print('')
+    Console.empty_line()
 
     if not args.interfaceonly:
-        threading.Thread(target=discovery_loop, args=(carriers, delay, int(args.offset),)).start()
+        orchestrator = DiscoveryOrchestrator(
+            carriers=carriers,
+            delay=delay,
+            offset=args.offset,
+            data_file=data_file,
+            geocoding_enabled=geocoding_enabled
+        )
+        
+        if args.interface:
+            # Run in background if interface is also requested
+            threading.Thread(target=orchestrator.run, daemon=True).start()
+            # Keep main thread alive
+            try:
+                while True:
+                    time.sleep(1)
+            except KeyboardInterrupt:
+                Console.info("Shutting down...")
+        else:
+            # Run in foreground
+            try:
+                orchestrator.run()
+            except KeyboardInterrupt:
+                Console.info("Shutting down...")
+    else:
+        # Interface only: just keep the process alive
+        try:
+            while True:
+                time.sleep(1)
+        except KeyboardInterrupt:
+            Console.info("Shutting down...")

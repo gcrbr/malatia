@@ -56,25 +56,24 @@ class Main(model.RouteFinder):
         return formatted
     
     def normalize(self, route): # gtfs stop id != flixbus place id (abbiamo bisogno di un match)
-        place = requests.get('https://global.api.flixbus.com/cms/cities',
-                   params={
-                        'language': 'en',
-                        'geo_bounding_box': json.dumps({
-                            'top_left': {
-                                'lat': route.latitude + 2e-2,
-                                'lon': route.longitude - 4e-2
-                            },
-                            'bottom_right': {
-                                'lat': route.latitude - 2e-2,
-                                'lon': route.longitude + 4e-2
-                            }
-                        }),
-                       'limit': 1,
-                    }
-                   ).json()
-        if place.get('result'):
-            place = place.get('result')[0]
+        place = requests.get('https://global.api.flixbus.com/cms/cities', params={
+            'language': 'en',
+            'limit': 1,
+            'geo_bounding_box': json.dumps({
+                'top_left': {
+                    'lat': float(route.latitude) + 2e-2,
+                    'lon': float(route.longitude) - 4e-2
+                },
+                'bottom_right': {
+                    'lat': float(route.latitude) - 2e-2,
+                    'lon': float(route.longitude) + 4e-2
+                }
+            }),
+        }).json()
+        results = place.get('result', [])
+        if results:
+            place = results[0]
             route.name = place.get('name')
             route.country = place.get('country')
             route.id = place.get('uuid')
-            return route
+        return route

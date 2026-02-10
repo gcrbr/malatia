@@ -1,7 +1,10 @@
 :root {
-    --screen: #d07c15;
-    --screenHover: #b06912;
-    --led: "DotMatri";
+    --amber: #ffb000;
+    --amber-glow: rgba(255, 176, 0, 0.4);
+    --bg-dark: #0a0a0b;
+    --row-bg: #121214;
+    --led-font: "DotMatri", "Courier New", Courier, monospace;
+    --header-font: 'Inter', sans-serif;
 }
 
 @font-face {
@@ -9,172 +12,399 @@
     src: url("../fonts/dotmatri.woff");
 }
 
+* {
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+}
+
 body {
-    background: black;
-    color: var(--screen);
+    background: var(--bg-dark);
+    color: var(--amber);
     margin: 0;
+    font-family: var(--header-font);
+    overflow-x: hidden;
+}
+
+/* CRT Screen Effect */
+body::before {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    z-index: 2000;
+    background-size: 100% 2px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.2;
 }
 
 #main {
-    padding: 10px;
+    padding: 20px 40px;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
 }
 
-#title {
-    display: inline-block;
-    font-weight: bold;
-    font-size: 35px;
-    font-family: Arial;
-    margin-bottom: 10px;
+.table-container {
+    width: 100%;
+    margin-top: 20px;
 }
 
 #title-block {
-    border-bottom: 1px solid var(--screen);
-    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--amber);
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+}
+
+#title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px var(--amber-glow);
+}
+
+#title small {
+    color: #fff;
+    opacity: 0.8;
 }
 
 #trips {
-    float: left;
-    font-size: 20px;
-    font-family: var(--led);
-    text-align: left;
     width: 100%;
-}
-
-td {
-    width: 150px;
-    letter-spacing: 1px;
-    font-size: 23px;
-    text-transform: uppercase;
-    background: #1a1a1a;
-    height: 45px;
-    padding: 2px;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-family: var(--led-font);
+    table-layout: auto;
 }
 
 th {
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 15px;
-    font-weight: 100;
-}
-
-.carrier {
-    width: 100px;
-    -webkit-user-drag: none;
-    -moz-user-drag: none;
-}
-
-#more {
-    text-align: center;
-    padding: 10px;
-    width: 100%;
-}
-
-button {
-    background: var(--screen);
-    padding: 15px;
-    color: white;
-    font-family: var(--led);
+    font-family: var(--header-font);
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+    font-weight: 600;
     text-transform: uppercase;
-    font-size: 20px;
-    border: 0;
-    border-radius: 10px;
-    width: 300px;
-    display: inline-block;
-    margin: 10px;
-    user-select: none;
+    letter-spacing: 2px;
+    padding: 10px 15px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255, 176, 0, 0.2);
 }
 
-button:hover {
-    cursor: pointer;
-    background: var(--screenHover);
-}
-
-button.button-small {
-    font-size: 15px;
-    width: 200px;
-}
-
-#toggable td {
-    background: #2a2a2a;
-}
-
-#toggable td:hover {
-    cursor: pointer;
-}
-
-
-/* Map */
-
-#map {
-    height: 100%;
-    width: 100%;
-}
-
-.leaflet-layer,
-.leaflet-control-zoom-in,
-.leaflet-control-zoom-out,
-.leaflet-control-attribution {
-    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
-}
-
-.leaflet-popup-content-wrapper {
-    background: black;
-    color: var(--screen);
-    font-family: var(--led);
-    text-transform: uppercase;
-    font-size: 15px;
-}
-
-.leaflet-popup-tip-container {
-    display: none;
-}
-
-#modal {
-    top: 0;
-    z-index: 999;
-    position: fixed;
-    background: rgba(0, 0, 0, 0.5);
-    width: 100%;
-    height: 100%;
-    display: none;
-}
-
-#modal-body {
-    background: #000000;
-    padding: 20px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    position: inherit;
-    font-family: "DotMatri";
-    color: var(--screen);
-    text-transform: uppercase;
-    width: 500px;
-    text-align: center;
-    border-radius: 10px;
-    font-size: 20px;
-}
-
-/* Stats */
-
+/* Stats Page Enhancements */
 #body {
-    height: 100%;
-    font-family: "DotMatri";
-    color: var(--screen);
-    text-transform: uppercase;
-    text-align: center;
+    padding: 60px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 10;
 }
 
-#body > div {
-    margin: auto;
+#body h2 {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-shadow: 0 0 10px var(--amber-glow);
+    border-left: 5px solid var(--amber);
+    padding-left: 20px;
+    text-align: left;
+}
+
+.chart {
+    background: rgba(18, 18, 20, 0.8);
+    padding: 40px;
+    border-radius: 4px;
+    border: 1px solid rgba(255, 176, 0, 0.2);
+    margin-bottom: 60px;
 }
 
 .barchart {
-    width: 40%;
-    height: 100% !important;
-    margin-bottom: 100px !important;
+    width: 100%;
+    height: 450px !important;
 }
 
 .piechart {
-    width: 50%;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto 60px auto;
+}
+
+/* Map */
+#map {
+    height: 100vh;
+    width: 100vw;
+    background: var(--bg-dark);
+}
+
+td {
+    padding: 18px 15px;
+    background: var(--row-bg);
+    font-size: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 8px var(--amber-glow);
+    transition: all 0.2s ease;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media (max-width: 992px) {
+
+    #main,
+    #body {
+        padding: 20px 15px;
+    }
+
+    #title-block {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    #header-actions {
+        width: 100%;
+        display: flex;
+        gap: 10px;
+    }
+
+    #header-actions button {
+        flex: 1;
+        padding: 12px 5px;
+        font-size: 0.8rem;
+    }
+
+    td {
+        font-size: 1.1rem;
+        padding: 12px 10px;
+    }
+
+    th {
+        font-size: 0.7rem;
+        letter-spacing: 1px;
+    }
+}
+
+@media (max-width: 600px) {
+    #title {
+        font-size: 1.8rem;
+    }
+
+    /* Nascondiamo colonne meno critiche su mobile estremo per salvare spazio */
+    th:nth-child(1),
+    td:nth-child(1),
+    /* DATE */
+    th:nth-child(5),
+    td:nth-child(5)
+
+    /* DURATION */
+        {
+        display: none;
+    }
+
+    /* Rendiamo la tabella scrollabile orizzontalmente se necessario */
+    .table-container {
+        width: 100%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    td {
+        font-size: 1rem;
+        letter-spacing: 1px;
+    }
+
+    [class^="group_"] td {
+        padding-left: 20px;
+    }
+
+    .piechart {
+        max-width: 100%;
+    }
+
+    .chart {
+        padding: 20px 10px;
+    }
+}
+
+/* Fix per i bottoni che non avevano un container su desktop */
+#header-actions {
+    display: flex;
+    gap: 15px;
+}
+
+#toggable {
+    cursor: pointer;
+    border-left: 4px solid var(--amber);
+}
+
+#toggable td {
+    background: #161618;
+    color: #fff;
+    font-weight: 800;
+}
+
+#toggable:hover td {
+    background: #1c1c1f;
+    box-shadow: inset 0 0 15px var(--amber-glow);
+}
+
+#toggable td:first-child {
+    color: var(--amber);
+    text-align: center;
+    width: 50px;
+}
+
+/* Sub-rows (grouped trips) */
+[class^="group_"] td {
+    background: #0d0d0f;
+    font-size: 1.2rem;
+    padding-left: 40px;
+    opacity: 0.9;
+}
+
+[class^="group_"]:hover td {
+    background: #141416;
+    opacity: 1;
+}
+
+tr:hover td {
+    background: #1a1a1d;
+    color: #fff;
+    text-shadow: 0 0 12px rgba(255, 255, 255, 0.5);
+}
+
+td:first-child {
+    border-radius: 4px 0 0 4px;
+}
+
+td:last-child {
+    border-radius: 0 4px 4px 0;
+}
+
+.carrier {
+    height: 20px;
+    filter: grayscale(100%) brightness(200%) contrast(100%);
+    opacity: 0.8;
+    vertical-align: middle;
+}
+
+/* Price Highlight */
+td:last-child {
+    color: #fff;
+    font-weight: bold;
+}
+
+#more {
+    display: flex;
+    justify-content: center;
+    padding: 40px;
+}
+
+button {
+    background: transparent;
+    border: 2px solid var(--amber);
+    color: var(--amber);
+    padding: 12px 30px;
+    font-family: var(--header-font);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: 0 0 10px rgba(255, 176, 0, 0.1);
+}
+
+button:hover {
+    background: var(--amber);
+    color: #000;
+    box-shadow: 0 0 25px var(--amber-glow);
+    transform: translateY(-2px);
+}
+
+button.button-small {
+    padding: 8px 20px;
+    font-size: 0.8rem;
+}
+
+/* Animations */
+@keyframes flicker {
+    0% {
+        opacity: 0.97;
+    }
+
+    5% {
+        opacity: 0.95;
+    }
+
+    10% {
+        opacity: 0.9;
+    }
+
+    15% {
+        opacity: 0.95;
+    }
+
+    20% {
+        opacity: 0.98;
+    }
+
+    25% {
+        opacity: 0.92;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+#trips tr {
+    animation: flicker 0.15s infinite alternate;
+}
+
+/* Modal */
+#modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+}
+
+#modal-body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid var(--amber);
+    background: var(--bg-dark);
+    box-shadow: 0 0 50px var(--amber-glow);
+    padding: 30px;
+    width: 90%;
+    max-width: 800px;
+    border-radius: 4px;
+}
+
+#modal-content {
+    margin-bottom: 30px;
+    overflow-x: auto;
+}
+
+#modal-content table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0 8px;
+    font-family: var(--led-font);
 }

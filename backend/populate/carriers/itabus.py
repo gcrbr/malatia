@@ -6,14 +6,14 @@ class Main(model.RouteFinder):
     def __init__(self):
         super().__init__(False)
         self.stations = requests.get(
-            'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/it/Api-Stations',
+            'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/en/Api-Stations',
             headers={
                 'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Safari/537.36 Edg/100.0.1185.39'
             }
         ).json().get('data')
     
     def get_code_from_place(self, place):
-        candidates = list()
+        candidates = []
         for station in self.stations:
             place_name = station.get('name').lower()
             candidates.append((
@@ -29,14 +29,14 @@ class Main(model.RouteFinder):
                 return station
     
     def get_reach(self, place):
-        formatted = list()
+        formatted = []
         reach = requests.get(
-            'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/it/Api-Station',
+            'https://www.itabus.it/on/demandware.store/Sites-ITABUS-Site/en/Api-Station',
             params={'stationID': self.get_code_from_place(place)},
             headers={'user-agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 12_3_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.41 Safari/537.36 Edg/100.0.1185.39'}
         ).json()
 
-        filtered_destinations = list()
+        filtered_destinations = []
         check = dict()
 
         for d in reach.get('data').get('destinations'):

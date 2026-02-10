@@ -1,23 +1,30 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="assets/css/style.css">
-        <title>Stats</title>
-    </head>
 
-    <body>
-        <div id="body">
-            <h2>Trips by price range</h2>
-            <div class="chart barchart">
-                <canvas id="trips_per_price"></canvas>
-            </div>
-            <h2>Trips by carrier</h2>
-            <div class="chart piechart">
-                <canvas id="trips_by_carrier"></canvas>
-            </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <title>Stats | MALATÌA</title>
+</head>
+
+<body>
+    <div id="body">
+        <h2>Trips by price range</h2>
+        <div class="chart barchart">
+            <canvas id="trips_per_price"></canvas>
         </div>
-    </body>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script type="text/javascript" src="assets/js/common.js"></script>
-    <script type="text/javascript" src="assets/js/stats.js"></script>
+        <h2>Trips by carrier</h2>
+        <div class="chart piechart">
+            <canvas id="trips_by_carrier"></canvas>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script type="text/javascript" src="assets/js/common.js"></script>
+<script type="text/javascript" src="assets/js/stats.js"></script>
+
 </html>

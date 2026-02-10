@@ -1,17 +1,12 @@
-import requests
 import json
 
 class Route:
-    def __init__(self, name, country, id, latitude, longitude):
+    def __init__(self, name: str, country: str, id: str, latitude: float, longitude: float):
         self.name = name
         self.country = country
         self.id = id
-        try:
-            self.latitude = float(latitude)
-            self.longitude = float(longitude)
-        except:
-            self.latitude = latitude
-            self.longitude = longitude
+        self.latitude = latitude
+        self.longitude = longitude
     
     def __str__(self):
         return f'Route(name=\'{self.name}\', country=\'{self.country}\', id={self.id}, latitude={self.latitude}, longitude={self.longitude})'
